@@ -1,66 +1,179 @@
-<html>
+﻿<html>
 <head>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="tablednd/jquery.min.js"></script>
-<script type="text/javascript" src="tablednd/jquery.tablednd.js"></script>
-<meta charset="UTF-8">
-<title>Pure CSS Table Highlight (vertical & horizontal)</title>
-<link rel="stylesheet" href="css/style.css">
-
-<style>
-*{ margin: 0;}
-</style>
-
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="tablednd/jquery.min.js"></script>
+  <script type="text/javascript" src="tablednd/jquery.tablednd.js"></script>
+  <meta charset="UTF-8">
+  <title>Pure CSS Table Highlight (vertical & horizontal)</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+  <body>
 
-<div class="wrap">
-  <div class="player_total">
-    <div class="player_img">
-      <div id="player" class="player"></div>
+    <div id="wrap">
+
+      <section class="intro" style="display: block;">
+        <div class="ctn_box">
+          <h1>MUSIC PLAYER 🎶</h1>
+          <button class="btn_start">시작하기</button>
+        </div>
+      </section>
+
+      <script>
+        $('.btn_start').click(function(){
+          $('.intro').css('display', 'none');
+          $('.player_genre').css('display', 'block');
+        });
+      </script>
+
+      <section class="player_genre">
+        <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
+        <div class="genre_wrap">
+          <div class="genre_group" data-genre="hiphop">
+            <h3>Hip-hop</h3>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="genre_group" data-genre="Electronic">
+            <h3>Electronic</h3>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="genre_group">
+            <h3>K-pop</h3>
+            <ul>
+
+            </ul>
+          </div>
+          <div class="genre_group">
+            <h3>Ballad</h3>
+            <ul>
+
+            </ul>
+          </div>
+          <div class="genre_group">
+            <h3>seventen</h3>
+            <ul>
+
+            </ul>
+          </div>
+          <div class="genre_group">
+            <h3>top 10</h3>
+            <ul>
+
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        $('.genre_group').click(function(){
+          $('.player_genre').css('display', 'none');
+          $('.player_total').css('display', 'block');
+        });
+      </script>
+
+      <section class="player_total">
+        <div class="header">
+          <div class="header_box">
+            <button class="btn_setting">설정</button>
+            <ul class="dropdown">
+              <li class="genre_choice">장르선택</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="player_img">
+          <div id="player" class="player"></div>
+        </div>
+
+        <div class="player_info">
+          <h2 class="player_title"></h2>
+          <p class="player_name"></p>
+        </div>
+        
+        <div class="time_total">
+          <div class="play-progress-box">
+            <div class="play-progress-bar"></div>
+          </div>
+          <div class="play-time">
+            <div class="start">00:00</div>
+            <div class="end">00:00</div>
+          </div>
+        </div>
+
+
+        <div class="controls">
+          <input type="button" value="재생" onClick="playVideo();"/>
+          <input type="button" value="이전" onClick="prevVideo();"/>
+          <input type="button" value="다음" onClick="nextVideo();"/>
+          <input type="button" value="정지" onClick="pauseVideo();"/>
+          <input type="button" value="종료" onClick="stopVideo();"/>
+          <input class="btn_random" type="button" value="랜덤" onClick="randomVideo();"/>
+          <br>
+          <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
+          볼륨&nbsp;:&nbsp;<input type="range" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+          <br>
+          <button onclick="playlist.setShuffle(50)">playlist.setShuffle(true)</button>
+          <button class="btn_listshow">리스트 보기</button>
+        </div>
+      </section>
+
+      <script>
+        $('.btn_listshow').click(function(){
+          $('.player_total').css('display', 'none');
+          $('.player_list').css('display', 'block');
+        });
+
+        $('.btn_setting').click(function(){
+          $('.dropdown').toggleClass('on');
+        });
+
+        $('.genre_choice').click(function(){
+          $('.player_total').css('display', 'none');
+          $('.player_genre').css('display', 'block');
+          $('.dropdown').removeClass('on');
+        });
+      </script>
+
+      <section class="player_list" style="display: none;">
+        <button class="btn_back">뒤로가기</button>
+        <p class="txt_box">Now Playing 🎵</p>
+        <div class="list_box">
+          <ul>
+  
+          </ul>
+        </div>
+      </section>
+
+      <script>
+        $('.btn_back').click(function(){
+          $('.player_list').css('display', 'none');
+          $('.player_total').css('display', 'block');
+        });
+      </script>
+
+
     </div>
 
-    <div class="player_info">
-      <h2 class="player_title"></h2>
-      <p class="player_name"></p>
-    </div>
-    
-    <div class="time_total">
-      <div class="play-progress-box">
-        <div class="play-progress-bar"></div>
-      </div>
-      <div class="play-time">
-        <div class="start">00:00</div>
-        <div class="end">00:00</div>
-      </div>
-    </div>
-
-
-    <div class="controls">
-      <input type="button" value="재생" onClick="playVideo();"/>
-      <input type="button" value="이전" onClick="prevVideo();"/>
-      <input type="button" value="다음" onClick="nextVideo();"/>
-      <input type="button" value="정지" onClick="pauseVideo();"/>
-      <input type="button" value="종료" onClick="stopVideo();"/>
-      <input class="btn_random" type="button" value="랜덤" onClick="randomVideo();"/>
-      <br>
-      <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
-      볼륨&nbsp;:&nbsp;<input type="range" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
-      <br>
-      <button onclick="playlist.setShuffle(50)">playlist.setShuffle(true)</button>
-    </div>
-  </div>
-
-  <div class="player_list">
-    <p class="txt_box">Now Playing ♬</p>
-    <ul>
-
-    </ul>
-  </div>
-
-</div>
-
-</body>
+  </body>
 </html>
 
 <script>

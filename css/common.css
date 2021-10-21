@@ -1,0 +1,200 @@
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+html > *{
+    letter-spacing: -0.1rem;
+}
+
+::-moz-selection {
+    text-shadow: none;
+}
+
+::selection {
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+html {
+    font-size: 10px;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+fieldset,
+legend,
+address,
+figure,
+hr,
+object,
+iframe,
+img,
+button,
+input,
+select,
+textarea,
+label,
+a,
+span,
+em,
+strong,
+small,
+sub,
+sup,
+table,
+caption,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+dl {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+select {
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background:linear-gradient(45deg,#49a09d,#5f2c82);
+    position: relative;
+    overflow: hidden;
+	overflow-y: auto;
+	padding-left: calc(100vw - 100%);
+}
+
+body.modal-active {
+    overflow-y: hidden;
+}
+
+#wrap {
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	overflow-x: hidden;
+	z-index: 15;
+}
+a{color: #222;}
+
+@media screen and (max-width: 720px) {
+    html {
+        font-size: 1.388888888888889vw;
+    }
+}
+
