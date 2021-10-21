@@ -1,13 +1,13 @@
 ﻿<html>
 <head>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="tablednd/jquery.min.js"></script>
-  <script type="text/javascript" src="tablednd/jquery.tablednd.js"></script>
   <meta charset="UTF-8">
-  <title>Pure CSS Table Highlight (vertical & horizontal)</title>
+  <title>MUSIC PLAYER</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.tablednd.js"></script>
+  <script type="text/javascript" src="js/player.js"></script>
 </head>
   <body>
 
@@ -20,75 +20,11 @@
         </div>
       </section>
 
-      <script>
-        $('.btn_start').click(function(){
-          $('.intro').css('display', 'none');
-          $('.player_genre').css('display', 'block');
-        });
-      </script>
-
       <section class="player_genre">
         <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
         <div class="genre_wrap">
-          <div class="genre_group" data-genre="hiphop">
-            <h3>Hip-hop</h3>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="genre_group" data-genre="Electronic">
-            <h3>Electronic</h3>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="genre_group">
-            <h3>K-pop</h3>
-            <ul>
-
-            </ul>
-          </div>
-          <div class="genre_group">
-            <h3>Ballad</h3>
-            <ul>
-
-            </ul>
-          </div>
-          <div class="genre_group">
-            <h3>seventen</h3>
-            <ul>
-
-            </ul>
-          </div>
-          <div class="genre_group">
-            <h3>top 10</h3>
-            <ul>
-
-            </ul>
-          </div>
         </div>
       </section>
-
-      <script>
-        $('.genre_group').click(function(){
-          $('.player_genre').css('display', 'none');
-          $('.player_total').css('display', 'block');
-        });
-      </script>
 
       <section class="player_total">
         <div class="header">
@@ -112,16 +48,18 @@
         <div class="time_total">
           <div class="play-progress-box">
             <div class="play-progress-bar"></div>
+    
           </div>
+          <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
           <div class="play-time">
             <div class="start">00:00</div>
             <div class="end">00:00</div>
           </div>
         </div>
-
+    
 
         <div class="controls">
-          <input type="button" value="재생" onClick="playVideo();"/>
+          <input class="btn_play" type="button" value="재생" onClick="playVideo();"/>
           <input type="button" value="이전" onClick="prevVideo();"/>
           <input type="button" value="다음" onClick="nextVideo();"/>
           <input type="button" value="정지" onClick="pauseVideo();"/>
@@ -129,29 +67,12 @@
           <input class="btn_random" type="button" value="랜덤" onClick="randomVideo();"/>
           <br>
           <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
-          볼륨&nbsp;:&nbsp;<input type="range" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+          볼륨&nbsp;:&nbsp;<input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
           <br>
-          <button onclick="playlist.setShuffle(50)">playlist.setShuffle(true)</button>
           <button class="btn_listshow">리스트 보기</button>
+
         </div>
       </section>
-
-      <script>
-        $('.btn_listshow').click(function(){
-          $('.player_total').css('display', 'none');
-          $('.player_list').css('display', 'block');
-        });
-
-        $('.btn_setting').click(function(){
-          $('.dropdown').toggleClass('on');
-        });
-
-        $('.genre_choice').click(function(){
-          $('.player_total').css('display', 'none');
-          $('.player_genre').css('display', 'block');
-          $('.dropdown').removeClass('on');
-        });
-      </script>
 
       <section class="player_list" style="display: none;">
         <button class="btn_back">뒤로가기</button>
@@ -163,379 +84,12 @@
         </div>
       </section>
 
-      <script>
-        $('.btn_back').click(function(){
-          $('.player_list').css('display', 'none');
-          $('.player_total').css('display', 'block');
-        });
-      </script>
 
 
     </div>
 
   </body>
 </html>
-
-<script>
-// 빈 값 체크
-var isEmpty = function(value){
-  if( value == "" || value == null || value == undefined || ( value != null && typeof value == "object" && !Object.keys(value).length ) ){ 
-    return true 
-  }else{ 
-    return false 
-  } 
-};
-
-// playlist - index = 현재 재생위치  
-    //옵션
-var video_info = [
-  {
-    id: "BDHOwL9e3Hs",
-    title: "제목01",
-    name: "가수01"
-  },{
-    id: "8do-DV3G7Zs",
-    title: "제목02",
-    name: "가수02"
-  },{
-    id: "JSvTuFu3N20",
-    title: "제목03",
-    name: "가수03"
-  },{
-    id: "Aw-PN5_2JyE",
-    title: "제목04",
-    name: "가수04"
-  },{
-    id: "lRZWGndSPeQ",
-    title: "제목05",
-    name: "가수05"
-  },{
-    id: "przR0GQBJyo",
-    title: "제목06",
-    name: "가수06"
-  }
-];
-
-var index = 0;
-var option;
-var onLoad;
-var yPlayer;
-
-
-function loadYouTubeApi() {
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  if (option == "Sequen"){
-    videoID = video_info[0].id;
-  }else{ 
-    videoID = video_info[Math.floor(Math.random() * video_info.length)].id;
-  }
-
-}
-
-
-function onYouTubeIframeAPIReady() {
-  yPlayer = new YT.Player('player', {
-    width: '100%',
-    videoId: videoID,
-    playerVars : { 
-      'rel': 0,             		    // 추천영상 false
-      'autoplay': 0,                // 자동재생
-      'cc_load_policy' : 0,         // 자막 0 : on, 1 : off
-      'controls': 1 ,               // 동영상 플레이어 컨트롤 표기
-      'disablekb' : 0               // 키보드 컨트롤 사용 중지
-    }, 
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange ,
-      'onError': onPlayerError
-    }
-  });
-
-}
-
-function onPlayerError(event) {
-  if ( event.data == 150 ){
-    yPlayer.stopVideo();
-    onPlayerStateChange_excute();
-  }
-  
-}
-
-function onPlayerReady(event) {
-  yPlayer.stopVideo();
-  yPlayer.setPlaybackRate(1);
-  event.target.setVolume(70);
-  yPlayer.playVideo();
-  $('.player_title').html(video_info[index].title);
-  $('.player_name').html(video_info[index].name);
-
-  maxTime = Math.floor(event.target.getDuration());
-  var duration = setTimeFormat(maxTime);
-  $(".play-time .end").text(duration);
-
-} 
-
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING) {
-    // 재생중
-    startAudioTimer(); // 오디오 재생시 타이머 시작, 재생바 진행, 재생시간 시작
-  }else if(event.data == YT.PlayerState.PAUSED) {
-    // 일시정지
-    stopAudioTimer(); // 오디오 재생시 타이머 중지
-  }else if (event.data == YT.PlayerState.ENDED) {
-    setTimeout(onPlayerStateChange_excute, onLoad); 
-    $(".play-time .start").text('00:00');	// 타이머 중지
-    $(".play-time .end").text('00:00');
-    $(".play-progress-bar").width(0);	// 재생바 초기화
-  }
-
-}
-
-
-/* 오디오 재생시 인터벌 시작
-: 재생 로딩바 시작
-: 재생시간 포멧 변경 시작 */
-function startAudioTimer(){
-  //플레이어가 재생중일때 실시간재생 시간을 초단위로 출력
-  var progressBar = $(".play-progress-bar");
-  var progress_val = 0;	// 재생 progress bar 값
-  var playtime = 0;		// 재생 시간
-  audioTimer = setInterval(function(){
-
-    // youtube 링크 삽입일 경우
-    // 해당 동영상의 정보중 현재 재생시간을 가져온다.
-    var currentTime = Math.floor(yPlayer.getCurrentTime());
-
-    // 00:00의 형식으로 표기하기위해 포맷변경
-    playtime = setTimeFormat(Math.floor(yPlayer.getCurrentTime()));
-    
-    // 가져온 현재 재생시간을 progress bar에 표기하기위해 currentTime가공
-    // 재생 완료를 100으로 잡고 현재 재생시간을 계산
-    // 소수점 첫번째 자리까지 계산
-    progress_val = (currentTime/maxTime)*100;
-    progress_val = progress_val.toFixed(1);
-    $(".play-time .start").text(playtime);
-    progressBar.css('width', progress_val+"%");
-
-  }, 1000);
-
-}
-
-
-function stopAudioTimer(){ 
-  clearInterval(audioTimer); $(".play-progress-bar").css('width',0); 
-}
-
-// 재생시간 포멧변경
-function setTimeFormat(sec_time){
-    var sec_num = parseInt(sec_time);
-    var minutes = Math.floor(sec_num / 60);
-    var seconds = sec_num - (minutes * 60);
-
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-
-    return minutes + ':' + seconds;
-}
-
-
-function player_List() {
-  var html = '';
-  for(var i = 0; i < video_info.length; i++){
-    html += '<li class="list' + i + '">';
-    html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + video_info[i].id + '/0.jpg"></div>';
-    html += '<div class="info_box">';
-    html += '<p class="title">' + video_info[i].title + '</p>';
-    html += '<p class="name">' + video_info[i].name + '</p>';
-    html += '</div>';
-    html += '<a href="#" onClick="listPlayer(' + i  + ');">재생</a></li>';
-  }
-  return html;
-}
-
-function page_on(on){
-  for(var i = 0; i < video_info.length; i++){
-    if(i === on){
-      $('.player_list ul li.list'+i).addClass('on');
-    }else{
-      $('.player_list ul li.list'+i).removeClass('on');
-    }
-  }
-}
-
-$('.player_list ul').html(player_List());
-page_on(index);
-playVideo();
-
-function onPlayerStateChange_excute(){
-  nextVideo();
-}
-
-
-function execute_func(){
-  if ( isEmpty(video_info[index]) == false ){
-    if ( isEmpty(yPlayer) == false ){
-      yPlayer.stopVideo();
-      yPlayer.destroy();
-      yPlayer = null;     
-      index = 0;
-      onYouTubeIframeAPIReady();
-    }
-    loadYouTubeApi();
-    page_on(index);
-  }
-}
-
-function listPlayer(list_id){
-  if ( isEmpty(yPlayer) == false ){
-    yPlayer.stopVideo();
-    yPlayer.destroy();
-    yPlayer = null;
-    index = list_id;
-    videoID = video_info[index].id;
-    onYouTubeIframeAPIReady();
-    loadYouTubeApi();
-    page_on(index);
-  }
-}
-
-
-// 재생
-function playVideo() {
-  if(option == "Sequen"){
-    yPlayer.playVideo();
-  }else{
-    option = "Sequen";
-    execute_func(); 
-  }
-}
-
-//랜덤재생
-function randomVideo() {
-  if(option == "Sequen"){
-    option = "Random";
-    $('.controls .btn_random').addClass('on');
-  }else{
-    option = "Sequen";
-    $('.controls .btn_random').removeClass('on');
-  }
-}
-
-// 일시정지
-function pauseVideo() {
-  yPlayer.pauseVideo();
-}
-
-// 종료
-function stopVideo() {
-  yPlayer.stopVideo();
-}
-
-// 다음재생
-function nextVideo() {
-  if ( isEmpty(yPlayer) == false ){
-    //yPlayer.seekTo(yPlayer.getDuration());
-
-    if (option == "Sequen" ){
-      if ( index < video_info.length - 1){
-        yPlayer.stopVideo();
-        yPlayer.destroy();
-        yPlayer = null;
-        index++;
-        videoID = video_info[index].id;
-        onYouTubeIframeAPIReady();
-        loadYouTubeApi();
-        page_on(index);
-      }else{ 
-        alert("다음 곡이 없습니다."); 
-      }
-    }else{ 
-      yPlayer.stopVideo();
-      yPlayer.destroy();
-      yPlayer = null;    
-      index = Math.floor(Math.random() * video_info.length);  
-      videoID = video_info[index].id;
-      onYouTubeIframeAPIReady();
-      loadYouTubeApi();
-      page_on(index);
-    }
-
-  }
-
-}
-
-// 이전재생
-function prevVideo() {
-  if ( isEmpty(yPlayer) == false ){
-    if (option == "Sequen" ){
-      if ( index > 0){
-        yPlayer.stopVideo();
-        yPlayer.destroy();
-        yPlayer = null;    
-        index--;
-        videoID = video_info[index].id;
-        onYouTubeIframeAPIReady();
-        loadYouTubeApi();
-        page_on(index);
-      }else{ 
-        alert("이전 곡이 없습니다."); 
-      }
-
-    }else{ 
-      yPlayer.stopVideo();
-      yPlayer.destroy();
-      yPlayer = null;    
-      index = Math.floor(Math.random() * video_info.length);  
-      videoID = video_info[index].id;
-      onYouTubeIframeAPIReady();
-      loadYouTubeApi();
-      page_on(index);
-    }
-  }
-}
-
-// 음소거 On / Off
-function volumeMute() {
-  // 음소거
-  if(yPlayer.isMuted() == true) {
-    yPlayer.unMute();
-    jQuery("#volumeMute").val("음소거");
-  }
-  // 음소거 해제
-  else if(yPlayer.isMuted() == false) {
-    yPlayer.mute();
-    jQuery("#volumeMute").val("음소거 해제");
-  }
-}
-
-// 볼륨 조절
-function soundControl(number) {
-  yPlayer.setVolume(number);
-}
-
-
-// $('#vol_up').click(function() {
-//   if(isEmpty(yPlayer) == false ){
-//     var cur_vol = yPlayer.getVolume();
-//     if(cur_vol < 100){
-//       yPlayer.setVolume(cur_vol + 10);
-//     }
-//   }
-// });
-
-// $('#vol_down').click(function() {
-//   if ( isEmpty(yPlayer) == false ){
-//     var cur_vol = yPlayer.getVolume();
-//     if (cur_vol > 0){ 
-//       yPlayer.setVolume(cur_vol - 10);
-//     }
-//   }
-// });
-</script>
  
 
 
