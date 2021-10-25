@@ -1,100 +1,104 @@
-﻿<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MUSIC PLAYER</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/common.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JTR MUSIC PLAYER</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.tablednd.js"></script>
-  <script type="text/javascript" src="js/player.js"></script>
 </head>
-  <body>
+<body>
+  <div id="wrap">
 
-    <div id="wrap">
+    <section class="intro">
+      <div class="ctn_box">
+        <h1>MUSIC PLAYER 🎶</h1>
+        <button class="btn_start">시작하기</button>
+      </div>
+    </section>
 
-      <section class="intro" style="display: block;">
-        <div class="ctn_box">
-          <h1>MUSIC PLAYER 🎶</h1>
-          <button class="btn_start">시작하기</button>
-        </div>
-      </section>
-
-      <section class="player_genre">
-        <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
-        <div class="genre_wrap">
-        </div>
-      </section>
-
-      <section class="player_total">
-        <div class="header">
-          <div class="header_box">
-            <button class="btn_setting">설정</button>
-            <ul class="dropdown">
-              <li class="genre_choice">장르선택</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="player_img">
-          <div id="player" class="player"></div>
-        </div>
-
-        <div class="player_info">
-          <h2 class="player_title"></h2>
-          <p class="player_name"></p>
-        </div>
-        
-        <div class="time_total">
-          <div class="play-progress-box">
-            <div class="play-progress-bar"></div>
-    
-          </div>
-          <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
-          <div class="play-time">
-            <div class="start">00:00</div>
-            <div class="end">00:00</div>
-          </div>
-        </div>
-    
-
-        <div class="controls">
-          <input class="btn_play" type="button" value="재생" onClick="playVideo();"/>
-          <input type="button" value="이전" onClick="prevVideo();"/>
-          <input type="button" value="다음" onClick="nextVideo();"/>
-          <input type="button" value="정지" onClick="pauseVideo();"/>
-          <input type="button" value="종료" onClick="stopVideo();"/>
-          <input class="btn_random" type="button" value="랜덤" onClick="randomVideo();"/>
-          <br>
-          <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
-          볼륨&nbsp;:&nbsp;<input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
-          <br>
-          <button class="btn_listshow">리스트 보기</button>
-
-        </div>
-      </section>
-
-      <section class="player_list" style="display: none;">
-        <button class="btn_back">뒤로가기</button>
-        <p class="txt_box">Now Playing 🎵</p>
-        <div class="list_box">
+    <section class="player_genre">
+      <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
+      <div class="genre_wrap">
+        <!-- <div class="genre_group list0">
+          <h3>댄스</h3>
           <ul>
-  
+            <li><img src=""></li>
+          </ul>
+        </div> -->
+      </div>
+    </section>
+
+    <section class="player_total">
+      <div class="header">
+        <div class="header_box">
+          <button class="btn_setting">설정</button>
+          <ul class="dropdown">
+            <li class="genre_choice">장르선택</li>
           </ul>
         </div>
-      </section>
+      </div>
 
+      <div class="player_img">
+        <div id="player" class="player"></div>
+      </div>
 
+      <div class="player_info">
+        <h2 class="player_title"></h2>
+        <p class="player_name"></p>
+      </div>
+      
+      <div class="time_total">
+        <div class="play-progress-box">
+          <div class="play-progress-bar"></div>
+  
+        </div>
+        <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
+        <div class="play-time">
+          <div class="start">00:00</div>
+          <div class="end">00:00</div>
+        </div>
+      </div>
 
-    </div>
+      <div class="controls">
+        <input type="button" value="재생" onClick="playVideo();" class="btn_play" />
+        <input type="button" value="이전" onClick="prevVideo();"/>
+        <input type="button" value="다음" onClick="nextVideo();"/>
+        <input type="button" value="정지" onClick="pauseVideo();"/>
+        <input type="button" value="종료" onClick="stopVideo();"/>
+        <input type="button" value="랜덤" onClick="randomVideo();" class="btn_random" />
+        <br>
+        <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
+        볼륨<input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+        <br>
+        <button class="btn_listshow">리스트 보기</button>
+      </div>
+    </section>
 
-  </body>
+    <section class="player_list" style="display: none;">
+      <button class="btn_back">뒤로가기</button>
+      <p class="txt_box">Now Playing 🎵</p>
+      <div class="list_box">
+        <ul>
+          <!-- <li class="list0">
+            <div class="img_box">
+              <img src="">
+            </div>
+            <div class="info_box">
+              <p class="title"></p>
+              <p class="name"></p>
+            </div>
+            <a href="#">재생</a>
+          </li> -->
+        </ul>
+      </div>
+    </section>
+
+  </div>
+  <!-- //wrap -->
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/player.js"></script>
+</body>
 </html>
- 
-
-
-
- 
-
-
-
