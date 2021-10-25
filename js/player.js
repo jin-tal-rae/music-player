@@ -2,20 +2,20 @@
 // 재생리스트 정보
 var player_info = [
   {
-    title: "댄스",
+    title: "Electronic",
     img: "",
     list: [{
-      id: "BDHOwL9e3Hs",
-      title: "제목01",
-      name: "가수01"
+      id: "5qqlqhMNG8s",
+      title: "Rock with you",
+      name: "SEVENTEEN"
     },{
-      id: "8do-DV3G7Zs",
-      title: "제목02",
-      name: "가수02"
+      id: "7_CIOWNR3j8",
+      title: "you were my star",
+      name: "몽니"
     },{
-      id: "JSvTuFu3N20",
-      title: "제목03",
-      name: "가수03"
+      id: "v6rL456ikAA",
+      title: "Taylor",
+      name: "임수연"
     },{
       id: "Aw-PN5_2JyE",
       title: "제목04",
@@ -464,11 +464,13 @@ function play_on(on){
 //그룹 목록 뿌려주기
 function groupList() {
   var html = '';
+  html += '<div class="swiper-wrapper">'
   for(var i = 0; i < player_info.length; i++){
-    html += '<div class="genre_group list' + i + '" onClick="group(' + i + ');" data-genre="hiphop">';
+    html += '<div class="swiper-slide genre_group list' + i + '">';
+    html += '<div class="thumb_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg" width="100%"><button class="btn_genre_group" onClick="group(' + i + ');">재생</button></div>'
     html += '<h3>' + player_info[i].title + '</h3>';
     html += '<ul>';
-    for(var j = 0; j < player_info[i].list.length; j++){
+    for(var j = 1; j < player_info[i].list.length; j++){
       if(j < 8){
         html += '<li><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></li>';
       }
@@ -476,6 +478,8 @@ function groupList() {
     html += '</ul>';
     html += '</div>';
   }
+  html += '</div>';
+  html += '<div class="swiper-pagination"></div>';
   return html;
 }
 
@@ -483,41 +487,50 @@ function groupList() {
 
 //접속시 실행
 $(window).on('load', function() {
-  playVideo();
+  // playVideo();
   $('.player_genre .genre_wrap').html(groupList());
 
-  
-  //인트로버튼
-  $('.btn_start').click(function(){
+  // 인트로
+  setTimeout(function() {
     $('.intro').css('display', 'none');
-    $('.player_genre').css('display', 'block');
-  });
+  }, 3500);  
 
-  //그룹 버튼
-  $('.genre_group').click(function(){
+  // 장르 선택 버튼
+  $('.btn_genre_group').click(function(){
     $('.player_genre').css('display', 'none');
     $('.player_total').css('display', 'block');
-  });
 
-  //
-  $('.btn_listshow').click(function(){
-    $('.player_total').css('display', 'none');
-    $('.player_list').css('display', 'block');
-  });
-
-  $('.btn_setting').click(function(){
-    $('.dropdown').toggleClass('on');
-  });
-
-  $('.genre_choice').click(function(){
-    $('.player_total').css('display', 'none');
-    $('.player_genre').css('display', 'block');
-    $('.dropdown').removeClass('on');
-  });
-
-  $('.btn_back').click(function(){
-    $('.player_list').css('display', 'none');
-    $('.player_total').css('display', 'block');
+    playVideo();
   });
   
+  // Top Menu
+  $('.menu_player_genre').click(function() {
+    $('.player_list').hide();
+    $('.player_total').hide();
+
+    $('.player_genre').show();
+  });
+
+  $('.menu_player_total').click(function() {
+    $('.player_list').hide();
+    $('.player_genre').hide();
+
+    $('.player_total').show();
+  });
+
+  $('.menu_player_list').click(function() {
+    $('.player_genre').hide();
+
+    $('.player_total').show();
+    $('.player_list').show();
+  });
+
+  var swiper = new Swiper('.genre_wrap', {
+    direction: 'vertical',
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
 });

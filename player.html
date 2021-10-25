@@ -7,19 +7,40 @@
   <title>JTR MUSIC PLAYER</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 </head>
 <body>
   <div id="wrap">
 
     <section class="intro">
-      <div class="ctn_box">
-        <h1>MUSIC PLAYER 🎶</h1>
-        <button class="btn_start">시작하기</button>
-      </div>
+      <img src="./img/logo.svg" alt="" class="logo">
+      <h1>JTR MUSIC PLAYER</h1>
+      <p>with.youtube</p>
     </section>
 
+    <nav>
+      <ul>
+        <li class="menu_player_genre">
+          <a href="#">
+            <span>Music group</span>
+          </a>
+        </li>
+        <li class="menu_player_total">
+          <a href="#">
+            <span>Player</span>
+          </a>
+        </li>
+        <li class="menu_player_list">
+          <a href="#">
+            <span>Playlist</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <section class="player_genre">
-      <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
+      <h2 class="hidden">Music group</h2>
+
       <div class="genre_wrap">
         <!-- <div class="genre_group list0">
           <h3>댄스</h3>
@@ -31,15 +52,8 @@
     </section>
 
     <section class="player_total">
-      <div class="header">
-        <div class="header_box">
-          <button class="btn_setting">설정</button>
-          <ul class="dropdown">
-            <li class="genre_choice">장르선택</li>
-          </ul>
-        </div>
-      </div>
-
+      <h2 class="hidden">Player</h2>
+      
       <div class="player_img">
         <div id="player" class="player"></div>
       </div>
@@ -62,23 +76,24 @@
       </div>
 
       <div class="controls">
-        <input type="button" value="재생" onClick="playVideo();" class="btn_play" />
         <input type="button" value="이전" onClick="prevVideo();"/>
+        <input type="button" value="재생" onClick="playVideo();" class="btn_play" />
+        <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
         <input type="button" value="다음" onClick="nextVideo();"/>
-        <input type="button" value="정지" onClick="pauseVideo();"/>
-        <input type="button" value="종료" onClick="stopVideo();"/>
+        <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
         <input type="button" value="랜덤" onClick="randomVideo();" class="btn_random" />
-        <br>
-        <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
-        볼륨<input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
-        <br>
-        <button class="btn_listshow">리스트 보기</button>
+        <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
+        <div class="sound_control_box">
+          <i class="sound_down"></i>
+          <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+          <i class="sound_up"></i>
+        </div>
       </div>
     </section>
 
-    <section class="player_list" style="display: none;">
-      <button class="btn_back">뒤로가기</button>
-      <p class="txt_box">Now Playing 🎵</p>
+    <section class="player_list">
+      <h2>Playlist <span>Electronic</span></h2>
+
       <div class="list_box">
         <ul>
           <!-- <li class="list0">
@@ -99,6 +114,7 @@
   <!-- //wrap -->
   
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="js/player.js"></script>
 </body>
 </html>
