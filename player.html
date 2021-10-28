@@ -66,9 +66,8 @@
       <div class="time_total">
         <div class="play-progress-box">
           <div class="play-progress-bar"></div>
-  
+          <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
         </div>
-        <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
         <div class="play-time">
           <div class="start">00:00</div>
           <div class="end">00:00</div>
@@ -76,19 +75,27 @@
       </div>
 
       <div class="controls">
-        <input type="button" value="이전" onClick="prevVideo();"/>
-        <input type="button" value="재생" onClick="playVideo();" class="btn_play" />
-        <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
-        <input type="button" value="다음" onClick="nextVideo();"/>
-        <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
-        <input type="button" value="랜덤" onClick="randomVideo();" class="btn_random" />
-        <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
+
+        <div class="btn_box">
+          <button type="button" onClick="repeatVideo();" class="btn_repeat">반복</button>
+          <div class="btn_center">
+            <button type="button" onClick="prevVideo();" class="btn_prev">이전</button>
+            <button type="button" onClick="playVideo();" class="btn_play">재생</button>
+            <button type="button" onClick="nextVideo();" class="btn_next">다음</button>
+          </div>
+          <button type="button" onClick="randomVideo();" class="btn_random">랜덤</button>
+        </div>
+
         <div class="sound_control_box">
           <i class="sound_down"></i>
           <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
           <i class="sound_up"></i>
         </div>
+        <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
+        <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
+        <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
       </div>
+      
     </section>
 
     <section class="player_list">

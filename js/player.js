@@ -119,6 +119,8 @@ var option;
 var onLoad;
 var yPlayer;
 var btn_play = false;
+var repeat_mode = 'NoRepeat'; //재생반복
+
 
 //재생바타이머 관련
 var isPause = false;
@@ -147,8 +149,10 @@ function loadYouTubeApi(grouplist) {
       html += '<div class="info_box">';
       html += '<p class="title">' + play_list[i].title + '</p>';
       html += '<p class="name">' + play_list[i].name + '</p>';
+      html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
       html += '</div>';
-      html += '<a href="#" onClick="listPlayer(' + i  + ');">재생</a></li>';
+      html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
+      html += '</li>';
     }
     return html;
   }
@@ -206,7 +210,6 @@ function onPlayerReady(event) {
   var duration = setTimeFormat(maxTime);
   $(".play-time .end").text(duration);
   $(".time_control").prop("max", maxTime);
-  play_on("false");
   timeControls(0);
 
 } 
@@ -307,7 +310,11 @@ function timeControls(time){
 
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
 function onPlayerStateChange_excute(){
-  nextVideo();
+  if(repeat_mode === 'NoRepeat'){
+    nextVideo();
+  }else if(repeat_mode === 'Repeat'){
+    listPlayer(index);
+  }
 }
 
 // 첫 실행시 실행
@@ -356,6 +363,17 @@ function randomVideo() {
   }else{
     option = "Sequen";
     $('.controls .btn_random').removeClass('on');
+  }
+}
+
+//반복재생 한곡만
+function repeatVideo() {
+  if(repeat_mode == "NoRepeat"){
+    repeat_mode = "Repeat";
+    $('.controls .btn_repeat').addClass('on');
+  }else{
+    repeat_mode = "NoRepeat";
+    $('.controls .btn_repeat').removeClass('on');
   }
 }
 
@@ -444,8 +462,10 @@ function page_on(on){
   for(var i = 0; i < play_list.length; i++){
     if(i === on){
       $('.player_list ul li.list'+i).addClass('on');
+      $('.player_list ul li.list'+i+' .time_total').css('display','block');
     }else{
       $('.player_list ul li.list'+i).removeClass('on');
+      $('.player_list ul li.list'+i+' .time_total').css('display','none');
     }
   }
 }
@@ -453,11 +473,15 @@ function page_on(on){
 //재생버튼 클릭시 실행
 function play_on(on){
   if(on === "false"){
-    $(".btn_play").attr("value", "재생");
+    $(".btn_play").text("재생");
     $(".btn_play").attr("onClick", "playVideo();");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "playVideo()");
+    $(".player_list ul li.on .list_btn_play").addClass("on");
   }else{
-    $(".btn_play").attr("value", "정지");
+    $(".btn_play").text("정지");
     $(".btn_play").attr("onClick", "pauseVideo();");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "pauseVideo()");
+    $(".player_list ul li.on .list_btn_play").removeClass("on");
   }
 }
 
@@ -467,15 +491,16 @@ function groupList() {
   html += '<div class="swiper-wrapper">'
   for(var i = 0; i < player_info.length; i++){
     html += '<div class="swiper-slide genre_group list' + i + '">';
-    html += '<div class="thumb_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg" width="100%"><button class="btn_genre_group" onClick="group(' + i + ');">재생</button></div>'
+    html += '<div class="thumb_box" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 55%, rgba(255,255,255,0.5) 65%, rgba(255,255,255,0.7) 75%, rgba(255,255,255,1) 90%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg) no-repeat top/cover; "></div>'
+    html += '<button class="btn_genre_group" onClick="group(' + i + ');">재생</button>';
     html += '<h3>' + player_info[i].title + '</h3>';
-    html += '<ul>';
+    html += '<div class="auto_slide"><span class="left">이전</span><span class="right">다음</span><div class="auto_slide_list"><ul>';
     for(var j = 1; j < player_info[i].list.length; j++){
       if(j < 8){
-        html += '<li><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></li>';
+        html += '<li><div class="player_info"><div class="img_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></div><h2 class="player_title">'+  player_info[i].list[j].title +'</h2><p class="player_name">'+player_info[i].list[j].name+'</p></div></li>';
       }
     }
-    html += '</ul>';
+    html += '</ul></div></div>';
     html += '</div>';
   }
   html += '</div>';
@@ -483,17 +508,133 @@ function groupList() {
   return html;
 }
 
+function autoSlidList(){
+
+  // 무한 반복 슬라이딩 //
+    
+    let current= 0;
+    let show = 4;
+    let containner = $('.auto_slide_list > ul');
+    let length = containner.find('>li').length;
+    let viwe =  $('.auto_slide_list').width();
+    let tt = viwe/show; //이동거리 -한칸씩 움직이기//
+    let next = $('.auto_slide .right');
+    let prev = $('.auto_slide .left');
+      
+     containner.css('width', (length * tt) );//컨테이너 길이 초기화//
+  
+    next.on({
+      click:function(){
+        
+        if(current == length) {//마지막 엘리먼트에 다다르면 current 초기화//
+          current = 0;
+        }
+        
+        if(current == 0){
+          //먼저 복사된 엘리먼트 삭제하고 위치 초기화//
+          containner.find('>li').eq(length-1).nextAll().remove();
+          containner.css({left:0}).stop();
+        
+          //이동//
+          current++;
+          containner.stop().animate({left:tt*current*-1},{duration:900});	
+          
+          //엘리먼트 복사 - 컨네이너의 자식 모두 복사//
+          let cloneEl = containner.children().clone();
+          //복사된 엘리먼트 수 만큼 길이 늘리고 붙이기//
+          containner.css({width:containner.innerWidth()+(tt*length)});
+          cloneEl.appendTo(containner);
+        }
+        else if(current >= 1){
+          
+          current++;
+          containner.stop().animate({left:tt*current*-1},{duration:900});	
+        }			
+        
+      },
+      mouseenter:function(){
+        clearInterval(Sliding);
+      },
+      mouseleave:function(){
+        slidingTimer();
+      }
+    });
+    
+    prev.on({
+      click:function(){
+        if(current == 0){
+          //먼저 복사된 엘리먼트 삭제하고 위치 초기화//
+          containner.find('>li').eq(length-1).nextAll().remove();
+          containner.css({left:0}).stop();
+                  
+          //인덱스 순서를 length로 치환해줌//
+          current=length;
+          
+          //앞쪽으로 엘리먼트 복사해서 붙이기//
+          //길이 & 위치 초기화 -앞쪽으로 붙었기 떄문에 늘어난 길이 만큼 left시작 위치가 -가 되어야함//
+          let cloneEl = containner.children().clone();
+          
+          containner.css({left:tt*length*-1,width:containner.innerWidth()+(tt*length)}).stop();
+          cloneEl.prependTo(containner);
+        
+          //붙이고 나서 바로 이동 되도록//
+          current--;
+          containner.stop().animate({left:tt*current*-1},{duration:900});
+        }
+        else if(current > 0 ){
+          current--;
+          containner.stop().animate({left:tt*current*-1},{duration:900});
+        }
+        
+      },
+      mouseenter:function(){
+        clearInterval(Sliding);
+      },
+      mouseleave:function(){
+        slidingTimer();
+      }
+    });
+    
+    
+    //컨테이너에 hover 되면 타이머 일시정지//
+    containner.on({
+      mouseenter:function(){
+        clearInterval(Sliding);
+      },
+      mouseleave:function(){
+        slidingTimer();
+      }
+    });
+  
+    slidingTimer();
+      
+    //자동 슬라이딩 타미머 함수 정의//
+    function slidingTimer(){
+      Sliding = setInterval(function(){
+        
+          next.trigger('click');
+        
+      },3000);
+    }
+  }
+
 
 
 //접속시 실행
 $(window).on('load', function() {
   // playVideo();
   $('.player_genre .genre_wrap').html(groupList());
+  $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
+  $('.sound_control[type=range]').on('input', function(){ 
+    var val = $(this).val(); $(this).css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ val +'%, #c4c4c4 ' + val + '%, #c4c4c4 100%)'); 
+  });
 
   // 인트로
   setTimeout(function() {
     $('.intro').css('display', 'none');
-  }, 3500);  
+  }, 3500); 
+
+  // autoSlidList();
 
   // 장르 선택 버튼
   $('.btn_genre_group').click(function(){
