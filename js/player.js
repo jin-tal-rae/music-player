@@ -2,44 +2,88 @@
 // 재생리스트 정보
 var player_info = [
   {
-    title: "Electronic",
+    title: "공격력 상승 국내 힙합",
     img: "",
     list: [{
-      id: "5qqlqhMNG8s",
-      title: "Rock with you",
-      name: "SEVENTEEN"
+      id: "Bbl3qPS9x4o",
+      title: "Siren Remix (Feat. UNEDUCATED KID, Paul Blanco) (사이렌 Remix (Feat. UNEDUCATED KID, Paul Blanco))",
+      name: "Homies · UNEDUCATED KID · Paul Blanco"
     },{
-      id: "7_CIOWNR3j8",
-      title: "you were my star",
-      name: "몽니"
+      id: "1JHOl9CSmXk",
+      title: "Cold Blooded (with 스트릿 우먼 파이터 (SWF)) MV",
+      name: "Jessi (제시)"
     },{
-      id: "v6rL456ikAA",
-      title: "Taylor",
-      name: "임수연"
+      id: "hq9hcJIzB6w",
+      title: "VVS (Feat. JUSTHIS) (Prod. GroovyRoom)",
+      name: "Miranni , Munchman , Khundi Panda , MUSHVENOM"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목04",
-      name: "가수04"
+      id: "PjLMkI9lt2c",
+      title: "ON AIR (Feat. Loco, Jay Park & GRAY)",
+      name: "lIlBOI"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목05",
-      name: "가수05"
+      id: "rGVqQVMtaUo",
+      title: "Freak (Prod. Slom)",
+      name: "lIlBOI , Wonstein , Chillin Homie , Skyminhyuk"
     },{
-      id: "przR0GQBJyo",
-      title: "제목06",
-      name: "가수06"
+      id: "zt1zcLJbftw",
+      title: "Achoo (Feat. pH-1, HAON) (Prod. GroovyRoom)",
+      name: "Miranni"
     },{
-      id: "przR0GQBJyo",
-      title: "제목07",
-      name: "가수07"
+      id: "jd2DxTR0znU",
+      title: "IndiGO",
+      name: "JUSTHIS(저스디스), Kid Milli, NO:EL, Young B(영비)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목08",
-      name: "가수08"
+      id: "l_j7g2lRYN8",
+      title: " run! (feat. JUSTHIS)",
+      name: "nafla (나플라)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목09",
-      name: "가수09"
+      id: "KT5nEChOISs",
+      title: "존시나 (feat. Northfacegawd, JUSTHIS, 래원)",
+      name: "염따(YUMDDA)"
+    },{
+      id: "bsgBUM2Mnsw",
+      title: "BAND",
+      name: "창모 CHANGMO, Hash Swan, ASH ISLAND, 김효은 Keem Hyo-Eun"
+    },{
+      id: "sP6y8aTE5NI",
+      title: "DNA Remix",
+      name: "박재범, YLN Foreign, D.Ark, 365LIT, pH-1, 릴보이, 이영지, Ourealgoat, Choo, OSUN"
+    },{
+      id: "s6bx7MCEZ6Y",
+      title: "Selfmade Orange (Feat. SUPERBEE)",
+      name: "창모 (CHANGMO)"
+    },{
+      id: "-PEwrXZApPI",
+      title: "Win Win (Feat. Gaeko, BewhY) (Prod. BewhY)",
+      name: "Rose de Penny , dsel , kaogaii , Untell"
+    },{
+      id: "2WhHrXon6Bg",
+      title: "GO HIGH (Feat. 우원재, 창모, The Quiett) (Prod. CODE KUNST)",
+      name: "이영지 Lee Young Ji"
+    },{
+      id: "aKuS6T2SZoI",
+      title: "Acrobat(곡예사)",
+      name: "Gwangil Jo(조광일)"
+    },{
+      id: "R2c5v0iJbgk",
+      title: "The Roots (Feat. JUSTHIS) (Prod. GroovyRoom)",
+      name: "Khundi Panda"
+    },{
+      id: "tE4PviEbSgA",
+      title: "The Purge (Official Video) ",
+      name: "Jay Park, pH-1, BIG Naughty , Woodie Gochild, HAON, TRADE L, Sik-K"
+    },{
+      id: "HhWAQDZX-Vg",
+      title: " Good Day (Feat. 팔로알토 Paloalto) (Prod. 코드 쿤스트 CODE KUNST)",
+      name: "pH-1, Kid Milli, 루피 "
+    },{
+      id: "yUnyZQYwGAc",
+      title: "Want It (Feat. Paloalto) (Prod. CODE KUNST)",
+      name: "Swings , Mckdaddy , Khakii , Layone"
+    },{
+      id: "GpygQthc4j4",
+      title: "Turn Up! (Feat. M1NU, Veinyfl, Swervy, Layone, Young Ji Lee, Lil Nekh, D.Ark) (털어! (Feat. M1NU, Veinyfl, Swervy, 래원, 이영지, Lil Nekh, D.Ark))",
+      name: "BIG Naughty · M1NU · Veinyfl · Swervy · Layone · Young Ji Lee · Lil Nekh · D.Ark"
     }]
   },{
     title: "발라드",
@@ -143,20 +187,25 @@ function loadYouTubeApi(grouplist) {
   // 재생 리스트 뿌려주기
   function playerList() {
     var html = '';
-    for(var i = 0; i < play_list.length; i++){
-      html += '<li class="list' + i + '">';
-      html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
-      html += '<div class="info_box">';
-      html += '<p class="title">' + play_list[i].title + '</p>';
-      html += '<p class="name">' + play_list[i].name + '</p>';
-      html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
-      html += '</div>';
-      html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
-      html += '</li>';
+    for(var i = 0; i < player_info.length; i++){
+      html += '<h2>Playlist<span>'+ player_info[i].title +'</span></h2>';
+      html += '<div class="list_box"><ul>';
+      for(var i = 0; i < play_list.length; i++){
+        html += '<li class="list' + i + '">';
+        html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
+        html += '<div class="info_box">';
+        html += '<p class="title">' + play_list[i].title + '</p>';
+        html += '<p class="name">' + play_list[i].name + '</p>';
+        html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
+        html += '</div>';
+        html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
+        html += '</li>';
+      }
+      html += '</ul></div>';
     }
     return html;
   }
-  $('.player_list .list_box ul').html(playerList());
+  $('.player_list').html(playerList());
 
 
   var tag = document.createElement('script');
@@ -473,12 +522,16 @@ function page_on(on){
 //재생버튼 클릭시 실행
 function play_on(on){
   if(on === "false"){
-    $(".btn_play").text("재생");
+    $(".btn_play").removeClass("pause");
+    $(".btn_play").addClass("play");
+    $(".btn_play span").text("재생");
     $(".btn_play").attr("onClick", "playVideo();");
     $(".player_list ul li.on .list_btn_play").attr("onClick", "playVideo()");
     $(".player_list ul li.on .list_btn_play").addClass("on");
   }else{
-    $(".btn_play").text("정지");
+    $(".btn_play").removeClass("play");
+    $(".btn_play").addClass("pause");
+    $(".btn_play span").text("정지");
     $(".btn_play").attr("onClick", "pauseVideo();");
     $(".player_list ul li.on .list_btn_play").attr("onClick", "pauseVideo()");
     $(".player_list ul li.on .list_btn_play").removeClass("on");
@@ -491,13 +544,13 @@ function groupList() {
   html += '<div class="swiper-wrapper">'
   for(var i = 0; i < player_info.length; i++){
     html += '<div class="swiper-slide genre_group list' + i + '">';
-    html += '<div class="thumb_box" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 55%, rgba(255,255,255,0.5) 65%, rgba(255,255,255,0.7) 75%, rgba(255,255,255,1) 90%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg) no-repeat top/cover; "></div>'
-    html += '<button class="btn_genre_group" onClick="group(' + i + ');">재생</button>';
-    html += '<h3>' + player_info[i].title + '</h3>';
-    html += '<div class="auto_slide"><span class="left">이전</span><span class="right">다음</span><div class="auto_slide_list"><ul>';
+    html += '<div class="thumb_box" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg) no-repeat top/cover; "></div>'
+    html += '<button class="btn_genre_group" onClick="group(' + i + ');"><span class="blind">재생</span></button>';
+    // html += '';
+    html += '<div class="auto_slide"><h3>' + player_info[i].title + '</h3><div class="auto_slide_list"><ul class="swiper-wrapper">';
     for(var j = 1; j < player_info[i].list.length; j++){
-      if(j < 8){
-        html += '<li><div class="player_info"><div class="img_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></div><h2 class="player_title">'+  player_info[i].list[j].title +'</h2><p class="player_name">'+player_info[i].list[j].name+'</p></div></li>';
+      if(j < 21){
+        html += '<li class="swiper-slide"><div class="player_info"><div class="img_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></div><h2 class="player_title">'+  player_info[i].list[j].title +'</h2><p class="player_name">'+player_info[i].list[j].name+'</p></div></li>';
       }
     }
     html += '</ul></div></div>';
@@ -507,116 +560,6 @@ function groupList() {
   html += '<div class="swiper-pagination"></div>';
   return html;
 }
-
-function autoSlidList(){
-
-  // 무한 반복 슬라이딩 //
-    
-    let current= 0;
-    let show = 4;
-    let containner = $('.auto_slide_list > ul');
-    let length = containner.find('>li').length;
-    let viwe =  $('.auto_slide_list').width();
-    let tt = viwe/show; //이동거리 -한칸씩 움직이기//
-    let next = $('.auto_slide .right');
-    let prev = $('.auto_slide .left');
-      
-     containner.css('width', (length * tt) );//컨테이너 길이 초기화//
-  
-    next.on({
-      click:function(){
-        
-        if(current == length) {//마지막 엘리먼트에 다다르면 current 초기화//
-          current = 0;
-        }
-        
-        if(current == 0){
-          //먼저 복사된 엘리먼트 삭제하고 위치 초기화//
-          containner.find('>li').eq(length-1).nextAll().remove();
-          containner.css({left:0}).stop();
-        
-          //이동//
-          current++;
-          containner.stop().animate({left:tt*current*-1},{duration:900});	
-          
-          //엘리먼트 복사 - 컨네이너의 자식 모두 복사//
-          let cloneEl = containner.children().clone();
-          //복사된 엘리먼트 수 만큼 길이 늘리고 붙이기//
-          containner.css({width:containner.innerWidth()+(tt*length)});
-          cloneEl.appendTo(containner);
-        }
-        else if(current >= 1){
-          
-          current++;
-          containner.stop().animate({left:tt*current*-1},{duration:900});	
-        }			
-        
-      },
-      mouseenter:function(){
-        clearInterval(Sliding);
-      },
-      mouseleave:function(){
-        slidingTimer();
-      }
-    });
-    
-    prev.on({
-      click:function(){
-        if(current == 0){
-          //먼저 복사된 엘리먼트 삭제하고 위치 초기화//
-          containner.find('>li').eq(length-1).nextAll().remove();
-          containner.css({left:0}).stop();
-                  
-          //인덱스 순서를 length로 치환해줌//
-          current=length;
-          
-          //앞쪽으로 엘리먼트 복사해서 붙이기//
-          //길이 & 위치 초기화 -앞쪽으로 붙었기 떄문에 늘어난 길이 만큼 left시작 위치가 -가 되어야함//
-          let cloneEl = containner.children().clone();
-          
-          containner.css({left:tt*length*-1,width:containner.innerWidth()+(tt*length)}).stop();
-          cloneEl.prependTo(containner);
-        
-          //붙이고 나서 바로 이동 되도록//
-          current--;
-          containner.stop().animate({left:tt*current*-1},{duration:900});
-        }
-        else if(current > 0 ){
-          current--;
-          containner.stop().animate({left:tt*current*-1},{duration:900});
-        }
-        
-      },
-      mouseenter:function(){
-        clearInterval(Sliding);
-      },
-      mouseleave:function(){
-        slidingTimer();
-      }
-    });
-    
-    
-    //컨테이너에 hover 되면 타이머 일시정지//
-    containner.on({
-      mouseenter:function(){
-        clearInterval(Sliding);
-      },
-      mouseleave:function(){
-        slidingTimer();
-      }
-    });
-  
-    slidingTimer();
-      
-    //자동 슬라이딩 타미머 함수 정의//
-    function slidingTimer(){
-      Sliding = setInterval(function(){
-        
-          next.trigger('click');
-        
-      },3000);
-    }
-  }
 
 
 
@@ -628,13 +571,20 @@ $(window).on('load', function() {
   $('.sound_control[type=range]').on('input', function(){ 
     var val = $(this).val(); $(this).css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ val +'%, #c4c4c4 ' + val + '%, #c4c4c4 100%)'); 
   });
-
+  
+  var swiper2 = new Swiper('.auto_slide_list', {
+    slidesPerView: 4,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  });
   // 인트로
   setTimeout(function() {
     $('.intro').css('display', 'none');
-  }, 3500); 
+  }, 4500); 
 
-  // autoSlidList();
 
   // 장르 선택 버튼
   $('.btn_genre_group').click(function(){
