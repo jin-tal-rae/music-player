@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JTR MUSIC PLAYER</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="wrap">
@@ -53,57 +53,59 @@
 
     <section class="player_total">
       <h2 class="hidden">Player</h2>
-      
-      <div class="player_img">
-        <div id="player" class="player"></div>
-      </div>
-
-      <div class="player_info">
-        <h2 class="player_title"></h2>
-        <p class="player_name"></p>
-      </div>
-      
-      <div class="time_total">
-        <div class="play-progress-box">
-          <div class="play-progress-bar"></div>
-          <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
-        </div>
-        <div class="play-time">
-          <div class="start">00:00</div>
-          <div class="end">00:00</div>
-        </div>
-      </div>
-
-      <div class="controls">
-
-        <div class="btn_box">
-          <button type="button" onClick="repeatVideo();" class="btn_repeat">반복</button>
-          <div class="btn_center">
-            <button type="button" onClick="prevVideo();" class="btn_prev">이전</button>
-            <button type="button" onClick="playVideo();" class="btn_play">재생</button>
-            <button type="button" onClick="nextVideo();" class="btn_next">다음</button>
+      <div class="total_wrap">
+        <div class="player_img_wrap">
+          <div class="player_img">
+            <div id="player" class="player"></div>
           </div>
-          <button type="button" onClick="randomVideo();" class="btn_random">랜덤</button>
         </div>
-
-        <div class="sound_control_box">
-          <i class="sound_down"></i>
-          <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
-          <i class="sound_up"></i>
+  
+        <div class="player_info">
+          <h2 class="player_title"></h2>
+          <p class="player_name"></p>
         </div>
-        <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
-        <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
-        <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
+        
+        <div class="time_total">
+          <div class="play-progress-box">
+            <div class="play-progress-bar"></div>
+            <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
+          </div>
+          <div class="play-time">
+            <div class="start">00:00</div>
+            <div class="end">00:00</div>
+          </div>
+        </div>
+  
+        <div class="controls">
+  
+          <div class="btn_box">
+            <button type="button" onClick="repeatVideo();" class="btn_repeat"><span class="blind">반복</span></button>
+            <div class="btn_center">
+              <button type="button" onClick="prevVideo();" class="btn_prev"><span class="blind">이전</span></button>
+              <button type="button" onClick="playVideo();" class="btn_play play"><span class="blind">재생</span></button>
+              <button type="button" onClick="nextVideo();" class="btn_next"><span class="blind">다음</span></button>
+            </div>
+            <button type="button" onClick="randomVideo();" class="btn_random"><span class="blind">랜덤</span></button>
+          </div>
+  
+          <div class="sound_control_box">
+            <i class="sound_down" onClick="volumeMute();" value="음소거"></i>
+            <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+            <i class="sound_up"></i>
+          </div>
+          <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
+          <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
+          <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
+        </div>
       </div>
-      
     </section>
 
     <section class="player_list">
-      <h2>Playlist <span>Electronic</span></h2>
+      <!-- <h2>Playlist <span>Electronic</span></h2>
 
       <div class="list_box">
         <ul>
-          <!-- <li class="list0">
+          <li class="list0">
             <div class="img_box">
               <img src="">
             </div>
@@ -112,9 +114,9 @@
               <p class="name"></p>
             </div>
             <a href="#">재생</a>
-          </li> -->
+          </li>
         </ul>
-      </div>
+      </div> -->
     </section>
 
   </div>
