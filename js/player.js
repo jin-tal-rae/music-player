@@ -600,12 +600,14 @@ function group(grouplist){
 //실행중인 리스트 온
 function page_on(on){
   for(var i = 0; i < play_list.length; i++){
+    var list_off = 'listPlayer('+i+')';
     if(i === on){
       $('.player_list ul li.list'+i).addClass('on');
       $('.player_list ul li.list'+i+' .time_total').css('display','block');
     }else{
       $('.player_list ul li.list'+i).removeClass('on');
       $('.player_list ul li.list'+i+' .time_total').css('display','none');
+      $('.player_list ul li.list'+i+' .list_btn_play').attr('onClick', list_off);//선택한 리스트가 아닐때 링크값 초기화
     }
   }
 }
@@ -617,14 +619,14 @@ function play_on(on){
     $(".btn_play").addClass("play");
     $(".btn_play span").text("재생");
     $(".btn_play").attr("onClick", "playVideo();");
-    $(".player_list ul li.on .list_btn_play").attr("onClick", "playVideo()");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "playVideo()");//리스트가 ON일이면서 정지일시 링크변경
     $(".player_list ul li.on .list_btn_play").addClass("on");
   }else{
     $(".btn_play").removeClass("play");
     $(".btn_play").addClass("pause");
     $(".btn_play span").text("정지");
     $(".btn_play").attr("onClick", "pauseVideo();");
-    $(".player_list ul li.on .list_btn_play").attr("onClick", "pauseVideo()");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "pauseVideo()");//리스트가 ON이면서 플레이시에 링크변경
     $(".player_list ul li.on .list_btn_play").removeClass("on");
   }
 }
