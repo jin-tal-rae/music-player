@@ -60,6 +60,7 @@ nav ul .active a {color: #fff;}
 
 .player_total .controls .sound_control_box{ position:relative; margin-top:2rem; width:100%; display: flex; justify-content: space-between;}
 .player_total .controls .sound_control_box i.sound_down{width:5rem; height:5rem; background: url(../img/volume_down_black_24dp.svg) no-repeat center/contain;}
+.player_total .controls .sound_control_box i.sound_down.soundOff{width:5rem; height:5rem; background: url(../img/volume_off_black_24dp.svg) no-repeat center/contain;}
 .player_total .controls .sound_control_box i.sound_up{width:5rem; height:5rem; background: url(../img/volume_up_black_24dp.svg) no-repeat center/contain;}
 .player_total .controls .sound_control_box .sound_control[type=range] { position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); -webkit-appearance: none; width: 80%; height: 0.8rem; background: #c4c4c4; cursor: pointer; border-radius: 0.4rem; /* iOS */ transition: background 450ms ease-in; } 
 .player_total .controls .sound_control_box .sound_control[type=range]:focus { outline: none; } 

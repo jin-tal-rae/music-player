@@ -86,28 +86,104 @@ var player_info = [
       name: "BIG Naughty · M1NU · Veinyfl · Swervy · Layone · Young Ji Lee · Lil Nekh · D.Ark"
     }]
   },{
-    title: "발라드",
+    title: "추억의 미니홈피 BGM 베스트",
     img: "",
     list: [{
-      id: "8do-DV3G7Zs",
-      title: "제목11",
-      name: "가수11"
+      id: "bzdsqPOJK_I",
+      title: "잔소리 (with 2AM 슬옹)",
+      name: "아이유"
     },{
-      id: "JSvTuFu3N20",
-      title: "제목12",
-      name: "가수12"
+      id: "dYIT_jeUBKg",
+      title: "Y",
+      name: "프리스타일"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목13",
-      name: "가수13"
+      id: "MzCbEdtNbJ0",
+      title: "HARU HARU(하루하루)",
+      name: "빅뱅"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목14",
-      name: "가수14"
+      id: "LOXEVd-Z7NE",
+      title: "HEARTBREAKER",
+      name: "G-DRAGON"
     },{
-      id: "przR0GQBJyo",
-      title: "제목15",
-      name: "가수15"
+      id: "dXQzwNb8G7g",
+      title: "비행기",
+      name: "거북이"
+    },{
+      id: "2Cv3phvP8Ro",
+      title: "LIES(거짓말)",
+      name: "빅뱅"
+    },{
+      id: "nhuFm3BGIBY",
+      title: "너에게 쓰는 편지 (Feat. 린)",
+      name: "MC몽"
+    },{
+      id: "eq8_0g4YBPc",
+      title: "가시",
+      name: "버즈"
+    },{
+      id: "rgms0zs6SZc",
+      title: "남자를 몰라",
+      name: "버즈"
+    },{
+      id: "PlOPWA_DE4U",
+      title: "그녀를 사랑해줘요",
+      name: "하동균"
+    },{
+      id: "BY4sHNaV4WU",
+      title: "눈의 꽃",
+      name: "박효신"
+    },{
+      id: "upA01bvUemQ",
+      title: "귀로",
+      name: "나얼"
+    },{
+      id: "d1sXqVAh2CY",
+      title: "Ballerino",
+      name: "리쌍"
+    },{
+      id: "RjU5Op_KSBw",
+      title: "만약에",
+      name: "태연"
+    },{
+      id: "OJhA9nOXMWw",
+      title: "광대",
+      name: "리쌍"
+    },{
+      id: "yriaLVToQI0",
+      title: "사랑과 전쟁 (Narr. 하하)",
+      name: "다비치"
+    },{
+      id: "3rYL8AHJaTc",
+      title: "헤어지지 못하는 여자, 떠나가지 못하는 남자",
+      name: "리쌍"
+    },{
+      id: "dJRkhdWsu_M",
+      title: "Officially Missing You",
+      name: "긱스"
+    },{
+      id: "yROjTblMPag",
+      title: "외톨이",
+      name: "아웃사이더"
+    },{
+      id: "KeMbLY7ztDw",
+      title: "사랑했나봐",
+      name: "윤도현"
+    },{
+      id: "X9A4LM0KqpI",
+      title: "몽환의 숲 (feat. 이루마)",
+      name: "키네틱플로우"
+    },{
+      id: "qdr0fZbuffY",
+      title: "Love Love Love",
+      name: "에픽하이"
+    },{
+      id: "Q8gyOnaxzHU",
+      title: "Bk Love",
+      name: "MC스나이퍼"
+    },{
+      id: "FMFBL8HtIFs",
+      title: "미워도 다시 한번 (Original Ver.)",
+      name: "바이브"
     }]
   },{
     title: "R&B",
@@ -159,12 +235,11 @@ var isEmpty = function(value){
 };
 
 var index = 0;
-var option;
+var option = 'start';
 var onLoad;
 var yPlayer;
 var btn_play = false;
 var repeat_mode = 'NoRepeat'; //재생반복
-
 
 //재생바타이머 관련
 var isPause = false;
@@ -179,8 +254,8 @@ function loadYouTubeApi(grouplist) {
 
   // 재생 리스트에 선택한 그룹의 리스트 담기
   for(var j = 0; j < player_info.length; j++){
-    if(grouplist === j){
-      play_list = player_info[j].list;
+    if(j === grouplist){
+      play_list = player_info[grouplist].list;
     }
   }
 
@@ -367,7 +442,7 @@ function onPlayerStateChange_excute(){
 }
 
 // 첫 실행시 실행
-function execute_func(){
+function execute_func(grouplist){
   if ( isEmpty(play_list[0]) == false ){
     if ( isEmpty(yPlayer) == false ){
       yPlayer.stopVideo();
@@ -376,7 +451,7 @@ function execute_func(){
       index = 0;
       onYouTubeIframeAPIReady();
     }
-    loadYouTubeApi();
+    loadYouTubeApi(grouplist);
     page_on(index);
     play_on("true");
   }
@@ -395,12 +470,12 @@ function playload(grouplist) {
 }
 
 // 재생
-function playVideo() {
+function playVideo(grouplist) {
   if(option == "Sequen"){
     yPlayer.playVideo();
   }else{
     option = "Sequen";
-    execute_func(); 
+    execute_func(grouplist); 
   }
 }
 
@@ -473,15 +548,19 @@ function prevVideo() {
 
 // 음소거 On / Off
 function volumeMute() {
-  // 음소거
+  console.log(yPlayer.isMuted());
   if(yPlayer.isMuted() == true) {
+    // 음소거 해제
+    $(".sound_control").prop("value", 50);
+    $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
+    $('.sound_down').removeClass('soundOff');
     yPlayer.unMute();
-    jQuery("#volumeMute").val("음소거");
-  }
-  // 음소거 해제
-  else if(yPlayer.isMuted() == false) {
+  }else if(yPlayer.isMuted() == false) {
+    // 음소거
+    $(".sound_control").prop("value", 0);
+    $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #c4c4c4 1%, #c4c4c4 100%)');
+    $('.sound_down').addClass('soundOff');
     yPlayer.mute();
-    jQuery("#volumeMute").val("음소거 해제");
   }
 }
 
@@ -500,10 +579,19 @@ function listPlayer(list_id){
 
 //그룹 선택시 실행
 function group(grouplist){
-if ( isEmpty(yPlayer) == false ){
+
+  $('.player_genre').css('display', 'none');
+  $('.player_total').css('display', 'block');
+
+  if ( isEmpty(yPlayer) == false ){
     index = 0;
-    playload(grouplist);    
+    playload(grouplist);
   }
+  if(option == "start"){
+    playVideo(grouplist);
+  }
+
+  
 }
 
 //실행중인 리스트 온
@@ -565,7 +653,6 @@ function groupList() {
 
 //접속시 실행
 $(window).on('load', function() {
-  // playVideo();
   $('.player_genre .genre_wrap').html(groupList());
   $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
   $('.sound_control[type=range]').on('input', function(){ 
@@ -586,13 +673,6 @@ $(window).on('load', function() {
   }, 4500); 
 
 
-  // 장르 선택 버튼
-  $('.btn_genre_group').click(function(){
-    $('.player_genre').css('display', 'none');
-    $('.player_total').css('display', 'block');
-
-    playVideo();
-  });
   
   // Top Menu
   $('.menu_player_genre').click(function() {
@@ -615,6 +695,7 @@ $(window).on('load', function() {
     $('.player_total').show();
     $('.player_list').show();
   });
+
 
   var swiper = new Swiper('.genre_wrap', {
     direction: 'vertical',

@@ -35,6 +35,7 @@
             <span>Playlist</span>
           </a>
         </li>
+        <li><button type="button" onClick="group(2);">테스트버튼</button></li>
       </ul>
     </nav>
 
@@ -89,7 +90,7 @@
           </div>
   
           <div class="sound_control_box">
-            <i class="sound_down" onClick="volumeMute();" value="음소거"></i>
+            <i class="sound_down" onClick="volumeMute();"></i>
             <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
             <i class="sound_up"></i>
           </div>
