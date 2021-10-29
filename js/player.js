@@ -87,6 +87,7 @@ var player_info = [
     }]
   },{
     title: "추억의 미니홈피 BGM 베스트",
+    color: "#000000",
     img: "",
     list: [{
       id: "bzdsqPOJK_I",
@@ -250,38 +251,8 @@ var playtime = 0;		// 재생 시간
 
 var play_list = player_info[0].list;
 
-function loadYouTubeApi(grouplist) {
 
-  // 재생 리스트에 선택한 그룹의 리스트 담기
-  for(var j = 0; j < player_info.length; j++){
-    if(j === grouplist){
-      play_list = player_info[grouplist].list;
-    }
-  }
-
-  // 재생 리스트 뿌려주기
-  function playerList() {
-    var html = '';
-    for(var i = 0; i < player_info.length; i++){
-      html += '<h2>Playlist<span>'+ player_info[i].title +'</span></h2>';
-      html += '<div class="list_box"><ul>';
-      for(var i = 0; i < play_list.length; i++){
-        html += '<li class="list' + i + '">';
-        html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
-        html += '<div class="info_box">';
-        html += '<p class="title">' + play_list[i].title + '</p>';
-        html += '<p class="name">' + play_list[i].name + '</p>';
-        html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
-        html += '</div>';
-        html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
-        html += '</li>';
-      }
-      html += '</ul></div>';
-    }
-    return html;
-  }
-  $('.player_list').html(playerList());
-
+function loadYouTubeApi() {
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -327,8 +298,8 @@ function onPlayerReady(event) {
   yPlayer.setPlaybackRate(1);
   event.target.setVolume(sound_value);
   yPlayer.playVideo();
-  $('.player_title').html(play_list[index].title);
-  $('.player_name').html(play_list[index].name);
+  $('.player_total .player_title').html(play_list[index].title);
+  $('.player_total .player_name').html(play_list[index].name);
 
   maxTime = Math.floor(event.target.getDuration());
   var duration = setTimeFormat(maxTime);
@@ -580,6 +551,36 @@ function listPlayer(list_id){
 //그룹 선택시 실행
 function group(grouplist){
 
+  // 재생 리스트에 선택한 그룹의 리스트 담기
+  for(var j = 0; j < player_info.length; j++){
+    if(j === grouplist){
+      play_list = player_info[grouplist].list;
+    }
+  }
+
+  // 재생 리스트 뿌려주기
+  function playerList() {
+    var html = '';
+    for(var i = 0; i < player_info.length; i++){
+      html += '<h2>Playlist<span>'+ player_info[i].title +'</span></h2>';
+      html += '<div class="list_box"><ul>';
+      for(var i = 0; i < play_list.length; i++){
+        html += '<li class="list' + i + '">';
+        html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
+        html += '<div class="info_box">';
+        html += '<p class="title">' + play_list[i].title + '</p>';
+        html += '<p class="name">' + play_list[i].name + '</p>';
+        html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
+        html += '</div>';
+        html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
+        html += '</li>';
+      }
+      html += '</ul></div>';
+    }
+    return html;
+  }
+  $('.player_list').html(playerList());
+
   $('.player_genre').css('display', 'none');
   $('.player_total').css('display', 'block');
 
@@ -635,7 +636,7 @@ function groupList() {
     html += '<div class="thumb_box" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg) no-repeat top/cover; "></div>'
     html += '<button class="btn_genre_group" onClick="group(' + i + ');"><span class="blind">재생</span></button>';
     // html += '';
-    html += '<div class="auto_slide"><h3>' + player_info[i].title + '</h3><div class="auto_slide_list"><ul class="swiper-wrapper">';
+    html += '<div class="auto_slide"><h3 style="color:'+ player_info[i].color +';">' + player_info[i].title + '</h3><div class="auto_slide_list"><ul class="swiper-wrapper">';
     for(var j = 1; j < player_info[i].list.length; j++){
       if(j < 21){
         html += '<li class="swiper-slide"><div class="player_info"><div class="img_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></div><h2 class="player_title">'+  player_info[i].list[j].title +'</h2><p class="player_name">'+player_info[i].list[j].name+'</p></div></li>';
