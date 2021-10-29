@@ -562,7 +562,7 @@ function group(grouplist){
   function playerList() {
     var html = '';
     for(var i = 0; i < player_info.length; i++){
-      html += '<h2>Playlist<span>'+ player_info[i].title +'</span></h2>';
+      html += '<h2>Playlist<span class="group_title"></span></h2>';
       html += '<div class="list_box"><ul>';
       for(var i = 0; i < play_list.length; i++){
         html += '<li class="list' + i + '">';
@@ -580,6 +580,7 @@ function group(grouplist){
     return html;
   }
   $('.player_list').html(playerList());
+  $(".group_title").text(player_info[grouplist].title);
 
   $('.player_genre').css('display', 'none');
   $('.player_total').css('display', 'block');
