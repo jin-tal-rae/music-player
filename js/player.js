@@ -183,25 +183,89 @@ var player_info = [
       name: "바이브"
     }]
   },{
-    title: "R&B",
+    title: "기분이 좋아지는 재즈",
     img: "",
     list: [{
-      id: "JSvTuFu3N20",
-      title: "제목21",
-      name: "가수21"
+      id: "IARliphiUM4",
+      title: "La vie en rose (Single Version)",
+      name: "Louis Armstrong And His Orchestra"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목22",
-      name: "가수22"
+      id: "Oos-YHx8qXo",
+      title: "SING SING SING-7247-DNC",
+      name: "BENNY GOODMAN"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목23",
-      name: "가수23"
+      id: "USASohfZK5E",
+      title: "Calypso",
+      name: "Kenny Barron"
     },{
-      id: "przR0GQBJyo",
-      title: "제목24",
-      name: "가수24"
-    }]
+      id: "BuV9nBzLn1s",
+      title: "Blues for Junior",
+      name: "Herb Ellis Quintet"
+    },{
+      id: "rkoQLRHkFXY",
+      title: "Sunday Morning",
+      name: "Grant Green"
+    },{
+      id: "krcKl2aC1yY",
+      title: "My Heart Stood Still",
+      name: "The Alex Levin Trio"
+    },{
+      id: "Q6yLEDpDrNw",
+      title: "Satin Doll",
+      name: "Eddie Higgins"
+    },{
+      id: "zmE5Gs8grdo",
+      title: "Little Girl Blue",
+      name: "Eddie Higgins"
+    },{
+      id: "5Ry9L17HQ5Q",
+      title: "Sister Sadie",
+      name: "Joe Pass"
+    },{
+      id: "NhLQ6wc6wyA",
+      title: "All Of You",
+      name: "Ray Brown"
+    },{
+      id: "oQfqw3s8QtQ",
+      title: "I Fall In Love Too Easily",
+      name: "Chet Baker"
+    },{
+      id: "IXFRQlszTQs",
+      title: "Tried Up",
+      name: "Ama Lou"
+    },{
+      id: "T_HbpV3PLgs",
+      title: "When You Wish Upon a Star (Mono Version)",
+      name: "The Dave Brubeck Quartet"
+    },{
+      id: "LLDjfRAKAVc",
+      title: "Tenderly (Album Version)",
+      name: "Bill Evans Trio"
+    },{
+      id: "0omaPcIShPk",
+      title: "Melody For C",
+      name: "Sonny Clark"
+    },{
+      id: "klhCx_zXYlg",
+      title: "First Responders",
+      name: "Terrace Martin, Robert Glasper, 9th Wonder, Kamasi Washington, Dinner Party"
+    },{
+      id: "Varl3SQuZ2I",
+      title: "Village Days",
+      name: "Terrace Martin, Dinner Party"
+    },{
+      id: "As1OF8HTwG0",
+      title: "The Nearness of You",
+      name: "Paul Bley"
+    },{
+      id: "h7W7U-h2AJw",
+      title: "Some Day My Prince Will Come",
+      name: "The Bill Evans Trio"
+    },{
+      id: "3BPhdGKc2Dg",
+      title: "When I Fall In Love",
+      name: "The Bill Evans Trio"
+    },]
   },{
     title: "POP",
     img: "",
