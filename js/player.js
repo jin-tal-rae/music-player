@@ -267,20 +267,96 @@ var player_info = [
       name: "The Bill Evans Trio"
     },]
   },{
-    title: "POP",
+    title: "나를 위로해주는 힐링 가요",
     img: "",
     list: [{
-      id: "Aw-PN5_2JyE",
-      title: "제목31",
-      name: "가수31"
+      id: "TqIAndOnd74",
+      title: "My sea (아이와 나의 바다)",
+      name: "아이유"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목32",
-      name: "가수32"
+      id: "-Ih5UArd4zk",
+      title: "Like Water",
+      name: "웬디 (WENDY)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목33",
-      name: "가수33"
+      id: "Xn1ZMrGWxjQ",
+      title: "나의 첫사랑 (First Loss)",
+      name: "다비치 (Davichi)"
+    },{
+      id: "5iSlfF8TQ9k",
+      title: "한숨 (Breathe)",
+      name: "이하이 (Lee Hi)"
+    },{
+      id: "poiZpOXZXN8",
+      title: "좋아좋아 (I Like You)",
+      name: "조정석 (CHO JUNG SEOK)"
+    },{
+      id: "SK6Sm2Ki9tI",
+      title: "신호등 (Traffic light)",
+      name: "이무진 (Lee Mujin)"
+    },{
+      id: "eHir_vB1RUI",
+      title: "Rain",
+      name: "태연 (TAEYEON)"
+    },{
+      id: "ZYBY490Undc",
+      title: "Je T'aime",
+      name: "조이 (JOY)"
+    },{
+      id: "pC6tPEaAiYU",
+      title: "TOMBOY",
+      name: "혁오 (HYUKOH)"
+    },{
+      id: "IgPcbE--mMA",
+      title: "고백 (Go Back)",
+      name: "멜로망스 (MeloMance)"
+    },{
+      id: "87E6ES3OtHI",
+      title: "찬란한 계절",
+      name: "폴킴 (Paul Kim)"
+    },{
+      id: "P9_nq8q6JDY",
+      title: "일이 너무 잘 돼 (Things are going well)",
+      name: "헤이즈(Heize) - 작사가 (Lyricist)"
+    },{
+      id: "zRq_DlEzygk",
+      title: "오늘의 기분 (Today's Mood)",
+      name: "치즈 (CHEEZE)"
+    },{
+      id: "t9aZFgD0mic",
+      title: "산책",
+      name: "백예린 (Yerin Baek)"
+    },{
+      id: "PcyBJNMx5Aw",
+      title: "I'm In Love",
+      name: "콜드 (Colde)"
+    },{
+      id: "c0gZnxJ5U6c",
+      title: "잠이 들어야 (Feat. 헤이즈)",
+      name: "로꼬 (Loco)"
+    },{
+      id: "JLT8qOdpDPM",
+      title: "별 보러 가자",
+      name: "적재"
+    },{
+      id: "CHzHPVSvlM0",
+      title: "I will light your way(너의 발걸음에 빛을 비춰줄게(Prod. Cho Young Soo(조영수))",
+      name: "케이시 (Kassy)"
+    },{
+      id: "KYgxjGyqf98",
+      title: "Cherry blossom(Feat. Sonny zero, Ashley Alisha)",
+      name: "뎁트 (Dept)"
+    },{
+      id: "j7kigSvOKQo",
+      title: "walk with you",
+      name: "한올"
+    },{
+      id: "Woo01RW7_jU",
+      title: "always be by your side (너의 별이 되어줄게)",
+      name: "윤원"
+    },{
+      id: "7ix0oRcbFj4",
+      title: "사랑을 하고 있어 (I'm in Love)",
+      name: "강아솔 (Kang Asol)"
     }]
   }
 ];
