@@ -158,10 +158,6 @@ var player_info = [
       title: "헤어지지 못하는 여자, 떠나가지 못하는 남자",
       name: "리쌍"
     },{
-      id: "dJRkhdWsu_M",
-      title: "Officially Missing You",
-      name: "긱스"
-    },{
       id: "yROjTblMPag",
       title: "외톨이",
       name: "아웃사이더"
@@ -241,6 +237,7 @@ var onLoad;
 var yPlayer;
 var btn_play = false;
 var repeat_mode = 'NoRepeat'; //재생반복
+var sound_mode = 'on';
 
 //재생바타이머 관련
 var isPause = false;
@@ -307,6 +304,12 @@ function onPlayerReady(event) {
   $(".play-time .end").text(duration);
   $(".time_control").prop("max", maxTime);
   timeControls(0);
+
+  //음소거 off 체크시 유지하기
+  if(sound_mode === 'off'){
+    volumeMute('off')
+  }
+
 
 } 
 
@@ -518,27 +521,47 @@ function prevVideo() {
   }
 }
 
+
+
 // 음소거 On / Off
-function volumeMute() {
-  console.log(yPlayer.isMuted());
-  if(yPlayer.isMuted() == true) {
+function volumeMute(sound_m) {
+  var volum_num = $('.sound_control.on').val();
+  var volum_lineargradient = 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ volum_num +'%, #c4c4c4 '+ volum_num +'%, #c4c4c4 100%)';
+  if(sound_m == 'on') {
     // 음소거 해제
-    $(".sound_control").prop("value", 50);
-    $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
+    $(".sound_control.off").css("display", "none");
+    $(".sound_control.on").css("display", "");
+    $(".sound_control.on").prop("value", volum_num);
+    $('.sound_control.on[type=range]').css('background', volum_lineargradient);
     $('.sound_down').removeClass('soundOff');
+    $(".sound_down").attr("onClick", "volumeMute('off');");//리스트가 ON일이면서 정지일시 링크변경
+
     yPlayer.unMute();
-  }else if(yPlayer.isMuted() == false) {
+    yPlayer.setVolume(volum_num);
+    sound_mode = 'on';
+  }else if(sound_m == 'off') {
     // 음소거
-    $(".sound_control").prop("value", 0);
-    $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #c4c4c4 1%, #c4c4c4 100%)');
+    $(".sound_control.on").css("display", "none");
+    $(".sound_control.off").css("display", "");
+    $(".sound_control.off").prop("value", 0);
+    $('.sound_control.off[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #c4c4c4 1%, #c4c4c4 100%)');
     $('.sound_down').addClass('soundOff');
+    $(".sound_down").attr("onClick", "volumeMute('on');");//리스트가 ON일이면서 정지일시 링크변경
     yPlayer.mute();
+    sound_mode = 'off';
   }
 }
+
+
 
 // 볼륨 조절
 function soundControl(number) {
   yPlayer.setVolume(number);
+}
+
+//음소거off일때 조절시 볼륨 0으로 초기화
+function soundControl1() {
+  $(".sound_control.off").prop("value", 0);
 }
 
 //리스트 선택시 실행
@@ -659,10 +682,11 @@ function groupList() {
 //접속시 실행
 $(window).on('load', function() {
   $('.player_genre .genre_wrap').html(groupList());
-  $('.sound_control[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
-  $('.sound_control[type=range]').on('input', function(){ 
+  $('.sound_control.on[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
+  $('.sound_control.on[type=range]').on('input', function(){ 
     var val = $(this).val(); $(this).css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ val +'%, #c4c4c4 ' + val + '%, #c4c4c4 100%)'); 
   });
+  $(".sound_control.off").css("display", "none");
   
   var swiper2 = new Swiper('.auto_slide_list', {
     slidesPerView: 4,

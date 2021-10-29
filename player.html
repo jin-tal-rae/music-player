@@ -89,8 +89,9 @@
           </div>
   
           <div class="sound_control_box">
-            <i class="sound_down" onClick="volumeMute();"></i>
-            <input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+            <i class="sound_down" onClick="volumeMute('off');"></i>
+            <input type="range" class="sound_control on" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+            <input type="range" class="sound_control off" value="0" min="0" max="100" onChange="soundControl1(0);"/>
             <i class="sound_up"></i>
           </div>
           <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
