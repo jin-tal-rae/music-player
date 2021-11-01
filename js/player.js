@@ -378,6 +378,7 @@ var yPlayer;
 var btn_play = false;
 var repeat_mode = 'NoRepeat'; //재생반복
 var sound_mode = 'on';
+var no_data = 'on';
 
 //재생바타이머 관련
 var isPause = false;
@@ -746,7 +747,8 @@ function group(grouplist){
   $('.player_list').html(playerList());
   $(".group_title").text(player_info[grouplist].title);
 
-  $('.menu_player_total').trigger('click');
+  $('.menu_player_total').addClass('active');
+  $('.menu_player_genre').removeClass('active');
   $('.player_genre').css('display', 'none');
   $('.player_total').css('display', 'block');
 
@@ -758,23 +760,50 @@ function group(grouplist){
     playVideo(grouplist);
   }
 
-  //재생위치 드래그시 타이머 멈춤
+  //타이머바 마우스 클릭 중일때 재생정지
   $('.time_control').on('mousedown',function(){
-    stopAudioTimer();
+    pauseVideo();
+    RangeSlider();
   })
+
+  //타이머바 마우스 클릭 풀었을때 재생
+  $('.time_control').on('mouseup',function(){
+    playVideo();
+  })
+
+  //타이머바 터치시 재생정지
+  $(".time_control").on("touchstart", function(e){
+    pauseVideo();
+  }); 
+
+  //타이머바 터치중 위치이동
+  $(".time_control").on("touchmove", function(e){
+    RangeSlider();
+  });
+
+  //타이머바 터치 풀었을때 재생
+  $(".time_control").on("touchend", function(e){
+    playVideo();
+  }); 
+
+  //타이머바 드래그중일때 위치 실시간 변경
+  var RangeSlider = function(){
+    var range = $('.time_control');
+    range.on('input', function(){		
+      timeControls(this.value);
+    });
+  };
   
 }
 
 //리스트 애니메이션
 function list_animation(){
   var li_height = $(".list_box li").outerHeight(true);
-  var li_height_on = $(".list_box .list"+index).height();
   for(var i = 0; i < play_list.length; i++){
     $(".list_box .list"+i).animate({ marginTop:(((i+1)*0.5)*100)+300, opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
   }
 
   $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 500 );
-console.log((li_height * index));
 
 }
 
@@ -847,6 +876,9 @@ $(window).on('load', function() {
   });
   $(".sound_control.off").css("display", "none");
   
+ 
+
+
   var swiper2 = new Swiper('.auto_slide_list', {
     slidesPerView: 4,
     loop: true,
@@ -866,22 +898,30 @@ $(window).on('load', function() {
   $('.menu_player_genre').click(function() {
     $('.player_list').hide();
     $('.player_total').hide();
-
     $('.player_genre').show();
+
   });
 
   $('.menu_player_total').click(function() {
-    $('.player_list').hide();
-    $('.player_genre').hide();
-
-    $('.player_total').show();
+    if(no_data === 'on'){
+      group(0);
+      no_data = 'off';
+    }else{
+      $('.player_list').hide();
+      $('.player_genre').hide();
+      $('.player_total').show();
+    }
   });
 
   $('.menu_player_list').click(function() {
+    if(no_data === 'on'){
+      group(0);
+      no_data = 'off';
+    }
     $('.player_genre').hide();
-
     $('.player_total').show();
     $('.player_list').show();
+
     list_animation();
 
   });
