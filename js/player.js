@@ -445,7 +445,6 @@ function onPlayerReady(event) {
   $(".play-time .end").text(duration);
   $(".time_control").prop("max", maxTime);
   timeControls(0);
-
   //음소거 off 체크시 유지하기
   if(sound_mode === 'off'){
     volumeMute('off')
@@ -715,6 +714,8 @@ function listPlayer(list_id){
 
 //그룹 선택시 실행
 function group(grouplist){
+  
+  no_data = 'off';
 
   // 재생 리스트에 선택한 그룹의 리스트 담기
   for(var j = 0; j < player_info.length; j++){
@@ -815,8 +816,11 @@ function page_on(on){
     if(i === on){
       $('.player_list ul li.list'+i).addClass('on');
       $('.player_list ul li.list'+i+' .time_total').css('display','block');
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 300, "easeOutQuad")
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "1" }, 100, "easeOutQuad")
     }else{
       $('.player_list ul li.list'+i).removeClass('on');
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 0, "easeOutQuad")
       $('.player_list ul li.list'+i+' .time_total').css('display','none');
       $('.player_list ul li.list'+i+' .list_btn_play').attr('onClick', list_off);//선택한 리스트가 아닐때 링크값 초기화
     }
@@ -904,6 +908,7 @@ $(window).on('load', function() {
 
   $('.menu_player_total').click(function() {
     if(no_data === 'on'){
+      //처음 그룹선택안하고 플레이창 이동시 첫번째 그룹 실행
       group(0);
       no_data = 'off';
     }else{
@@ -915,6 +920,7 @@ $(window).on('load', function() {
 
   $('.menu_player_list').click(function() {
     if(no_data === 'on'){
+      //처음 그룹선택안하고 리스트창 이동시 첫번째 그룹 실행
       group(0);
       no_data = 'off';
     }
