@@ -40,7 +40,7 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .genre_group ul li img {width: 27rem; height: 20rem; transform: translate(-6rem,-3rem);}
 .genre_group .auto_slide{margin-left: 2rem; margin-top: -30rem;}
 
-.player_total{ width:100%; height:100%; align-items: center; background-color:#fff; }
+.player_total{ width:100%; height:100%; align-items: center; background: linear-gradient(to bottom, rgb(0 0 0 / 15%) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%); }
 .player_total .total_wrap{width: 100%; height: 100vh; padding:4.5rem 2rem; display: flex; flex-direction: column; justify-content: flex-end;}
 .player_total .player_img_wrap{width: 100%; position: absolute; left: 0; top: 50%; transform: translateY(-100%);}
 .player_total .player_img{ position: relative; width: 100%; padding-bottom: 56.4%;}
@@ -89,9 +89,10 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_total .dropdown li:not(:first-child){border-top: 1px solid #333;}
 
 .player_list{display: none; width:100%; padding:4.5rem 4.5rem 0; background-color:rgba(0,0,0,.6);}
+.player_list .txt_null {display: flex;align-items: center;justify-content: center;height: 80%;color: #fff;font-size: 2rem;}
 .player_list h2 {margin-bottom: 4.5rem; font-size: 4.8rem; color: #fff;}
 .player_list h2 > span {margin-left: 2rem; font-size: 1.3rem;}
-.player_list .list_box{height: 100%; overflow-y: scroll; padding-right: 2rem;}
+.player_list .list_box{height: calc(100% - 11.2rem); overflow-y: scroll; padding-right: 2rem;}
 .player_list .list_box::-webkit-scrollbar{width: 1rem;}
 .player_list .list_box::-webkit-scrollbar-thumb{background-color: #aaa; border-radius: 1rem;}
 .player_list ul li{ position:relative; padding: 2rem;display: flex;justify-content:flex-start;background-color: #f1f1f1;border-radius: 1rem;}
@@ -119,6 +120,6 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_list ul li .time_total .time_control[type=range]{ width:100%; -webkit-appearance: none; background: transparent; cursor: pointer;}
 .player_list ul li .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; margin-left:-0.3rem; width: 0.6rem; height: 0.6rem; border-radius:0.3rem; background:#636AD8; cursor: pointer; }
 
-.swiper-pagination-bullet{background: #eee;}
+.swiper-pagination-bullet{background: #eee; border: 1px solid #000;}
 .swiper-pagination-bullet-active{background-color: #8067C7; border: 1px solid #5e36ca;}
 .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets{transform: translate3d(0px,-100%,0);}
