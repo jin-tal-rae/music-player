@@ -186,9 +186,9 @@ var player_info = [
     title: "기분이 좋아지는 재즈",
     img: "",
     list: [{
-      id: "IARliphiUM4",
-      title: "La vie en rose (Single Version)",
-      name: "Louis Armstrong And His Orchestra"
+      id: "5Ry9L17HQ5Q",
+      title: "Sister Sadie",
+      name: "Joe Pass"
     },{
       id: "Oos-YHx8qXo",
       title: "SING SING SING-7247-DNC",
@@ -218,9 +218,9 @@ var player_info = [
       title: "Little Girl Blue",
       name: "Eddie Higgins"
     },{
-      id: "5Ry9L17HQ5Q",
-      title: "Sister Sadie",
-      name: "Joe Pass"
+      id: "IARliphiUM4",
+      title: "La vie en rose (Single Version)",
+      name: "Louis Armstrong And His Orchestra"
     },{
       id: "NhLQ6wc6wyA",
       title: "All Of You",
