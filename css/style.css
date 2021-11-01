@@ -9,19 +9,24 @@ section{width: 100%; height: 100%;background-color:#fff; display: none; overflow
     100% {opacity: 0;}
 }
 
-nav {position: fixed; z-index: 10; width: 100%; max-width: 720px;}
+nav {position: fixed; z-index: 10; width: 100%; max-width: 720px; padding: 0.5rem 1rem;}
 nav ul {display: flex; justify-content: flex-end;}
-nav ul li {margin: 1.3rem 1.9rem; font-size: 1.4rem;}
-nav ul .menu_player_genre {}
-nav ul .menu_player_total {}
-nav ul .menu_player_list {}
-nav ul .active a {color: #fff;}
+nav ul li {margin: .5rem 0; padding: .5rem 1.2rem; font-size: 1.4rem; border-radius: 30px;}
+nav ul li a {display: flex; align-items: center; text-decoration: none;}
+nav .link_text {margin-right: 1.2rem;user-select: none;display: none;align-items: center;z-index: 1;}
+nav .active {background: linear-gradient(105.4deg, #636AD8 16.28%, #28B7B7 82.13%); transition: 0.4s cubic-bezier(0.7, 0, 0.38, 0.86) all;}
+nav .active a {color: #fff;}
+nav .active .link_text {display: block;}
+nav .active.menu_player_total .link_text {display: none;}
+nav .menu_player_genre i {width: 2.4rem; height: 2.4rem; background: url(../img/library_music_black_24dp.svg#white) no-repeat center/contain;}
+nav .menu_player_total i {width: 2.4rem; height: 2.4rem; background: url(../img/play_circle_filled_black_24dp.svg#white) no-repeat center/contain;}
+nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/playlist_play_black_24dp.svg#white) no-repeat center/contain;}
 
 .player_genre{display: block; text-align: center; position: relative;}
 .player_genre .genre_wrap {height: 100%;}
 .player_genre .thumb_box {position: relative; z-index: -1;background-repeat: no-repeat; width: 100%; height: 100vh; }
 .player_genre .thumb_box > img {position: relative; left: 50%; transform: translateX(-50%); }
-.player_genre .btn_genre_group {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); width: 15.5rem; height: 15.5rem; background: url(../img/play_circle_filled_black_24dp.svg#white) no-repeat center/contain;}
+.player_genre .btn_genre_group {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -110%); width: 13rem; height: 13rem; background: url(../img/play_circle_filled_black_24dp.svg#white) no-repeat center/contain; box-shadow: .5rem .5rem .5rem rgb(0,0,0,.3); border-radius: 50%; transition: all ease .5s;}
 
 .player_genre .auto_slide_list{position: relative; overflow: hidden; height: auto;}
 .player_genre .auto_slide_list .player_info{width: 15rem; height: auto;background-color: transparent;}
@@ -29,7 +34,7 @@ nav ul .active a {color: #fff;}
 .player_genre .auto_slide_list .player_info .player_title{text-align: left; margin-left: 1.5rem; margin-top: .5rem; width: 13rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 .player_genre .auto_slide_list .player_info .player_name{text-align: left; margin-left: 1.5rem;width: 13rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 
-.genre_group h3{font-size: 4rem; text-align: left; margin: 0rem 0 2rem 3rem; color: #fff;}
+.genre_group h3{font-size: 4rem; text-align: left; margin: 0rem 0 2rem 3rem; color: #fff; text-shadow: 1px 1px 1rem rgba(0,0,0,.6); word-spacing: -0.1rem;}
 .genre_group ul {display: flex;}
 .genre_group ul li{overflow: hidden; position: relative; background-color: transparent; display: flex; justify-content: center;}
 .genre_group ul li img {width: 27rem; height: 20rem; transform: translate(-6rem,-3rem);}
