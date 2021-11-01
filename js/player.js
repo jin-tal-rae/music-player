@@ -90,9 +90,9 @@ var player_info = [
     color: "#fff",
     img: "",
     list: [{
-      id: "dJRkhdWsu_M",
-      title: "Officially Missing You",
-      name: "긱스 (Geeks)"
+      id: "N16i7m0rMa0",
+      title: "물고기자리",
+      name: "이안"
     },{
       id: "dYIT_jeUBKg",
       title: "Y",
@@ -758,8 +758,26 @@ function group(grouplist){
     playVideo(grouplist);
   }
 
+  //재생위치 드래그시 타이머 멈춤
+  $('.time_control').on('mousedown',function(){
+    stopAudioTimer();
+  })
   
 }
+
+//리스트 애니메이션
+function list_animation(){
+  var li_height = $(".list_box li").outerHeight(true);
+  var li_height_on = $(".list_box .list"+index).height();
+  for(var i = 0; i < play_list.length; i++){
+    $(".list_box .list"+i).animate({ marginTop:(((i+1)*0.5)*100)+300, opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
+  }
+
+  $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 500 );
+console.log((li_height * index));
+
+}
+
 
 //실행중인 리스트 온
 function page_on(on){
@@ -864,7 +882,10 @@ $(window).on('load', function() {
 
     $('.player_total').show();
     $('.player_list').show();
+    list_animation();
+
   });
+
 
 
   var swiper = new Swiper('.genre_wrap', {
