@@ -87,12 +87,12 @@ var player_info = [
     }]
   },{
     title: "추억의 미니홈피 BGM 베스트",
-    color: "#000000",
+    color: "#fff",
     img: "",
     list: [{
-      id: "bzdsqPOJK_I",
-      title: "잔소리 (with 2AM 슬옹)",
-      name: "아이유"
+      id: "dJRkhdWsu_M",
+      title: "Officially Missing You",
+      name: "긱스 (Geeks)"
     },{
       id: "dYIT_jeUBKg",
       title: "Y",
@@ -746,6 +746,7 @@ function group(grouplist){
   $('.player_list').html(playerList());
   $(".group_title").text(player_info[grouplist].title);
 
+  $('.menu_player_total').trigger('click');
   $('.player_genre').css('display', 'none');
   $('.player_total').css('display', 'block');
 
@@ -873,5 +874,9 @@ $(window).on('load', function() {
       el: ".swiper-pagination",
       clickable: true,
     },
+  });
+
+  $('nav li').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
   });
 });
