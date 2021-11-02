@@ -438,7 +438,7 @@ function onPlayerReady(event) {
   yPlayer.playVideo();
   $('.player_total .player_title').html(play_list[index].title);
   $('.player_total .player_name').html(play_list[index].name);
-  $('.player_total').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/0.jpg) no-repeat top/cover ');
+  $('.player_total').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
 
   maxTime = Math.floor(event.target.getDuration());
   var duration = setTimeFormat(maxTime);
