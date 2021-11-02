@@ -804,7 +804,7 @@ function list_animation(){
     $(".list_box .list"+i).animate({ marginTop:"15rem", opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
   }
 
-  $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 500 );
+  $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 400 );
 
 }
 
@@ -816,11 +816,11 @@ function page_on(on){
     if(i === on){
       $('.player_list ul li.list'+i).addClass('on');
       $('.player_list ul li.list'+i+' .time_total').css('display','block');
-      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 300, "easeOutQuad")
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 700, "easeOutQuad")
       $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "1" }, 100, "easeOutQuad")
     }else{
       $('.player_list ul li.list'+i).removeClass('on');
-      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 0, "easeOutQuad")
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 100, "easeOutQuad")
       $('.player_list ul li.list'+i+' .time_total').css('display','none');
       $('.player_list ul li.list'+i+' .list_btn_play').attr('onClick', list_off);//선택한 리스트가 아닐때 링크값 초기화
     }
