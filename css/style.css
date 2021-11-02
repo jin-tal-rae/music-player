@@ -95,9 +95,9 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_list .list_box{height: calc(100% - 11.2rem); overflow-y: scroll; padding-right: 2rem;}
 .player_list .list_box::-webkit-scrollbar{width: 1rem;}
 .player_list .list_box::-webkit-scrollbar-thumb{background-color: #aaa; border-radius: 1rem;}
-.player_list ul li{ position:relative; padding: 2rem;display: flex;justify-content:flex-start;background-color: #f1f1f1;border-radius: 1rem;}
+.player_list ul li{ position:relative; padding: 2rem;display: flex;justify-content:flex-start;background-color: #f1f1f1;border-radius: 1rem; }
 .player_list ul li + li {margin-top: 1.5rem}
-.player_list ul li .img_box{position:relative;width: 7.5rem;height:0;padding-bottom: 5.7rem;margin-right:1.2rem; background-color: #333;}
+.player_list ul li .img_box{position:relative;width: 7.5rem;height:0;padding-bottom: 5.7rem;margin-right:1.2rem; background-color: #333; transition:all 200ms;}
 .player_list ul li .img_box img{ position: absolute; width: 100%; height:100%;}
 .player_list ul li .info_box{ position: relative; width: calc(100% - 8.7rem); display: flex;align-items:center;align-content:center;flex-wrap: wrap;}
 .player_list ul li .info_box .title{width:90%; font-size: 1.4rem; font-weight:700; line-height:1.4;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
@@ -105,7 +105,7 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_list ul li a{position:absolute; right: 3%; top:50%; width: 3rem; height:0; padding-bottom: 3rem;text-indent: -5000px; transform: translateY(-50%);}
 .player_list ul li a::after{content: '';position: absolute;top:0;left:0;width:100%;height:100%;background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23949494'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z'/%3E%3C/svg%3E") no-repeat center; background-size:100%;}
 
-.player_list ul li.on .img_box{width: 12.8rem;padding-bottom: 9.7rem;}
+.player_list ul li.on .img_box{width: 12.8rem;padding-bottom: 9.7rem;transition:all 200ms;}
 .player_list ul li.on .info_box{width: calc(100% - 13.5rem); padding:1rem 0; align-content:flex-start;}
 .player_list ul li.on a{right: 3%; top:30%;}
 .player_list ul li.on a::after{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%238067C7'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z'/%3E%3C/svg%3E") no-repeat center; background-size:100%;}

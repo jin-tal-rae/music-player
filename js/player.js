@@ -801,7 +801,7 @@ function group(grouplist){
 function list_animation(){
   var li_height = $(".list_box li").outerHeight(true);
   for(var i = 0; i < play_list.length; i++){
-    $(".list_box .list"+i).animate({ marginTop:(((i+1)*0.5)*100)+300, opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
+    $(".list_box .list"+i).animate({ marginTop:"15rem", opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
   }
 
   $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 500 );
