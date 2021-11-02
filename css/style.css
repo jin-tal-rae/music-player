@@ -75,7 +75,7 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_total .time_total{ position: relative; margin-top:3rem; width:100%; }
 .player_total .time_total .play-progress-box{position:relative; display: inline-block; background: #c4c4c4; width:100%; height: 1.2rem; overflow:hidden; border-radius:0.6rem;}
 .player_total .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0.6rem; }
-.player_total .time_total .play-time{ margin-top:0.5rem; display: flex; justify-content: space-between; font-size:1.8rem; line-height:1; letter-spacing:0; color:#c4c4c4;}
+.player_total .time_total .play-time{ margin-top:0.5rem; display: flex; justify-content: space-between; font-size:1.8rem; line-height:1; letter-spacing:0; color:#000;}
 .player_total .time_total .time_control { position: absolute; left:0; top: 0; width:100%; padding: 0px; }
 .player_total .time_total .time_control[type=range]{ width:100%; -webkit-appearance: none; background: transparent; cursor: pointer;}
 .player_total .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; margin-left:-0.8rem; width: 1.4rem; height: 1.2rem; border-radius:0.6rem; background:#636AD8; cursor: pointer; }
