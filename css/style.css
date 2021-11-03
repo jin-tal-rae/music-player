@@ -59,7 +59,8 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_total .controls .btn_box .btn_center .btn_next{ width:5rem; height:5rem; background: url(../img/last_page_black_24dp.svg#off) no-repeat center/contain;}
 .player_total .controls .btn_box .btn_center .btn_next:hover{background: url(../img/last_page_black_24dp.svg#on) no-repeat center/contain;}
 .player_total .controls .btn_box .btn_repeat{width:5rem; height:5rem; background: url(../img/repeat_black_24dp.svg#off) no-repeat center/contain;}
-.player_total .controls .btn_box .btn_repeat.on{background: url(../img/repeat_black_24dp.svg#on) no-repeat center/contain;}
+.player_total .controls .btn_box .btn_repeat.all{background: url(../img/repeat_black_24dp.svg#on) no-repeat center/contain;}
+.player_total .controls .btn_box .btn_repeat.one{background: url(../img/repeat_black_24dp.svg#one) no-repeat center/contain;}
 .player_total .controls .btn_box .btn_random{width:5rem; height:5rem; background: url(../img/shuffle_black_24dp.svg#off) no-repeat center/contain;}
 .player_total .controls .btn_box .btn_random.on{background: url(../img/shuffle_black_24dp.svg#on) no-repeat center/contain;}
 

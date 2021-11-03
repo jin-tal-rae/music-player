@@ -549,10 +549,24 @@ function timeControls(time){
 
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
 function onPlayerStateChange_excute(){
-  if(repeat_mode === 'NoRepeat'){
-    nextVideo();
-  }else if(repeat_mode === 'Repeat'){
+  if(repeat_mode === 'All'){
+    console.log(index);
+    console.log(play_list.length);
+
+    if(play_list.length <= index+1){
+      listPlayer(0);
+      console.log(1);
+
+    }else{
+      nextVideo();
+      console.log(2);
+
+    }
+
+  }else if(repeat_mode === 'One'){
     listPlayer(index);
+  }else{
+    nextVideo();
   }
 }
 
@@ -608,11 +622,15 @@ function randomVideo() {
 //반복재생 한곡만
 function repeatVideo() {
   if(repeat_mode == "NoRepeat"){
-    repeat_mode = "Repeat";
-    $('.controls .btn_repeat').addClass('on');
+    $('.controls .btn_repeat').addClass('all');
+    repeat_mode = "All";
+  }else if(repeat_mode == "All"){
+    $('.controls .btn_repeat').addClass('one');
+    $('.controls .btn_repeat').removeClass('all');
+    repeat_mode = "One";
   }else{
+    $('.controls .btn_repeat').removeClass('one');
     repeat_mode = "NoRepeat";
-    $('.controls .btn_repeat').removeClass('on');
   }
 }
 
