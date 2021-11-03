@@ -550,19 +550,11 @@ function timeControls(time){
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
 function onPlayerStateChange_excute(){
   if(repeat_mode === 'All'){
-    console.log(index);
-    console.log(play_list.length);
-
     if(play_list.length <= index+1){
       listPlayer(0);
-      console.log(1);
-
     }else{
       nextVideo();
-      console.log(2);
-
     }
-
   }else if(repeat_mode === 'One'){
     listPlayer(index);
   }else{
@@ -652,7 +644,11 @@ function nextVideo() {
         index++;
         playload();
       }else{ 
-        alert("다음 곡이 없습니다."); 
+        if(repeat_mode == "All"){
+          listPlayer(0);
+        }else{
+          alert("다음 곡이 없습니다."); 
+        }
       }
     }else{ 
       index = Math.floor(Math.random() * play_list.length);  
@@ -669,7 +665,11 @@ function prevVideo() {
         index--;
         playload();
       }else{ 
-        alert("이전 곡이 없습니다."); 
+        if(repeat_mode == "All"){
+          listPlayer(play_list.length - 1);
+        }else{
+          alert("이전 곡이 없습니다."); 
+        }
       }
 
     }else{ 
