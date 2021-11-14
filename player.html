@@ -6,20 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JTR MUSIC PLAYER</title>
   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="wrap">
 
     <section class="intro">
-      <div class="ctn_box">
-        <h1>MUSIC PLAYER 🎶</h1>
-        <button class="btn_start">시작하기</button>
-      </div>
+      <img src="./img/logo.svg" alt="" class="logo">
+      <h1>JTR MUSIC PLAYER</h1>
+      <p>with.youtube</p>
     </section>
 
+    <nav>
+      <ul>
+        <li class="menu_player_genre active">
+          <a href="#">
+            <span class="link_text">Music group</span>
+            <i></i>
+          </a>
+        </li>
+        <li class="menu_player_total">
+          <a href="#">
+            <span class="link_text">Player</span>
+            <i></i>
+          </a>
+        </li>
+        <li class="menu_player_list">
+          <a href="#">
+            <span class="link_text">Playlist</span>
+            <i></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <section class="player_genre">
-      <h2>원하시는 장르를 선택 해 주세요 🎧</h2>
+      <h2 class="hidden">Music group</h2>
+
       <div class="genre_wrap">
         <!-- <div class="genre_group list0">
           <h3>댄스</h3>
@@ -31,57 +56,63 @@
     </section>
 
     <section class="player_total">
-      <div class="header">
-        <div class="header_box">
-          <button class="btn_setting">설정</button>
-          <ul class="dropdown">
-            <li class="genre_choice">장르선택</li>
-          </ul>
+      <h2 class="hidden">Player</h2>
+      <div class="total_wrap">
+        <div class="player_img_wrap">
+          <div class="player_img">
+            <div id="player" class="player"></div>
+          </div>
         </div>
-      </div>
-
-      <div class="player_img">
-        <div id="player" class="player"></div>
-      </div>
-
-      <div class="player_info">
-        <h2 class="player_title"></h2>
-        <p class="player_name"></p>
-      </div>
-      
-      <div class="time_total">
-        <div class="play-progress-box">
-          <div class="play-progress-bar"></div>
   
+        <div class="player_info">
+          <h2 class="player_title"></h2>
+          <p class="player_name"></p>
         </div>
-        <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
-        <div class="play-time">
-          <div class="start">00:00</div>
-          <div class="end">00:00</div>
+        
+        <div class="time_total">
+          <div class="play-progress-box">
+            <div class="play-progress-bar"></div>
+            <input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/>
+          </div>
+          <div class="play-time">
+            <div class="start">00:00</div>
+            <div class="end">00:00</div>
+          </div>
         </div>
-      </div>
-
-      <div class="controls">
-        <input type="button" value="재생" onClick="playVideo();" class="btn_play" />
-        <input type="button" value="이전" onClick="prevVideo();"/>
-        <input type="button" value="다음" onClick="nextVideo();"/>
-        <input type="button" value="정지" onClick="pauseVideo();"/>
-        <input type="button" value="종료" onClick="stopVideo();"/>
-        <input type="button" value="랜덤" onClick="randomVideo();" class="btn_random" />
-        <br>
-        <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/>
-        볼륨<input type="range" class="sound_control" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
-        <br>
-        <button class="btn_listshow">리스트 보기</button>
+  
+        <div class="controls">
+  
+          <div class="btn_box">
+            <button type="button" onClick="repeatVideo();" class="btn_repeat"><span class="blind">반복</span></button>
+            <div class="btn_center">
+              <button type="button" onClick="prevVideo();" class="btn_prev"><span class="blind">이전</span></button>
+              <button type="button" onClick="playVideo();" class="btn_play play"><span class="blind">재생</span></button>
+              <button type="button" onClick="nextVideo();" class="btn_next"><span class="blind">다음</span></button>
+            </div>
+            <button type="button" onClick="randomVideo();" class="btn_random"><span class="blind">랜덤</span></button>
+          </div>
+  
+          <div class="sound_control_box">
+            <i class="sound_down" onClick="volumeMute('off');"></i>
+            <input type="range" class="sound_control on" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
+            <input type="range" class="sound_control off" value="0" min="0" max="100" onChange="soundControl1(0);"/>
+            <i class="sound_up"></i>
+          </div>
+          <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
+          <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
+          <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
+        </div>
       </div>
     </section>
 
-    <section class="player_list" style="display: none;">
-      <button class="btn_back">뒤로가기</button>
-      <p class="txt_box">Now Playing 🎵</p>
+    <section class="player_list">
+      <p class="txt_null">재생 중인 곡이 없습니다.</p>
+
+      <!-- <h2>Playlist <span>Electronic</span></h2>
+
       <div class="list_box">
         <ul>
-          <!-- <li class="list0">
+          <li class="list0">
             <div class="img_box">
               <img src="">
             </div>
@@ -90,15 +121,17 @@
               <p class="name"></p>
             </div>
             <a href="#">재생</a>
-          </li> -->
+          </li>
         </ul>
-      </div>
+      </div> -->
     </section>
 
   </div>
   <!-- //wrap -->
   
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="js/player.js"></script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+<style>
+    g { display: none; }
+    g:target { display: inline-block; }
+</style>
+<g id="off">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" fill="#949494"/>
+</g>
+<g id="on">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" fill="#636AD8"/>
+</g>
+<g id="one">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z" fill="#636AD8"/>
+</g>
+</svg>

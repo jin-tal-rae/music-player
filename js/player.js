@@ -2,104 +2,361 @@
 // 재생리스트 정보
 var player_info = [
   {
-    title: "댄스",
+    title: "공격력 상승 국내 힙합",
     img: "",
     list: [{
-      id: "BDHOwL9e3Hs",
-      title: "제목01",
-      name: "가수01"
+      id: "Bbl3qPS9x4o",
+      title: "Siren Remix (Feat. UNEDUCATED KID, Paul Blanco) (사이렌 Remix (Feat. UNEDUCATED KID, Paul Blanco))",
+      name: "Homies · UNEDUCATED KID · Paul Blanco"
     },{
-      id: "8do-DV3G7Zs",
-      title: "제목02",
-      name: "가수02"
+      id: "1JHOl9CSmXk",
+      title: "Cold Blooded (with 스트릿 우먼 파이터 (SWF)) MV",
+      name: "Jessi (제시)"
     },{
-      id: "JSvTuFu3N20",
-      title: "제목03",
-      name: "가수03"
+      id: "hq9hcJIzB6w",
+      title: "VVS (Feat. JUSTHIS) (Prod. GroovyRoom)",
+      name: "Miranni , Munchman , Khundi Panda , MUSHVENOM"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목04",
-      name: "가수04"
+      id: "PjLMkI9lt2c",
+      title: "ON AIR (Feat. Loco, Jay Park & GRAY)",
+      name: "lIlBOI"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목05",
-      name: "가수05"
+      id: "rGVqQVMtaUo",
+      title: "Freak (Prod. Slom)",
+      name: "lIlBOI , Wonstein , Chillin Homie , Skyminhyuk"
     },{
-      id: "przR0GQBJyo",
-      title: "제목06",
-      name: "가수06"
+      id: "zt1zcLJbftw",
+      title: "Achoo (Feat. pH-1, HAON) (Prod. GroovyRoom)",
+      name: "Miranni"
     },{
-      id: "przR0GQBJyo",
-      title: "제목07",
-      name: "가수07"
+      id: "jd2DxTR0znU",
+      title: "IndiGO",
+      name: "JUSTHIS(저스디스), Kid Milli, NO:EL, Young B(영비)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목08",
-      name: "가수08"
+      id: "l_j7g2lRYN8",
+      title: " run! (feat. JUSTHIS)",
+      name: "nafla (나플라)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목09",
-      name: "가수09"
+      id: "KT5nEChOISs",
+      title: "존시나 (feat. Northfacegawd, JUSTHIS, 래원)",
+      name: "염따(YUMDDA)"
+    },{
+      id: "bsgBUM2Mnsw",
+      title: "BAND",
+      name: "창모 CHANGMO, Hash Swan, ASH ISLAND, 김효은 Keem Hyo-Eun"
+    },{
+      id: "sP6y8aTE5NI",
+      title: "DNA Remix",
+      name: "박재범, YLN Foreign, D.Ark, 365LIT, pH-1, 릴보이, 이영지, Ourealgoat, Choo, OSUN"
+    },{
+      id: "s6bx7MCEZ6Y",
+      title: "Selfmade Orange (Feat. SUPERBEE)",
+      name: "창모 (CHANGMO)"
+    },{
+      id: "-PEwrXZApPI",
+      title: "Win Win (Feat. Gaeko, BewhY) (Prod. BewhY)",
+      name: "Rose de Penny , dsel , kaogaii , Untell"
+    },{
+      id: "2WhHrXon6Bg",
+      title: "GO HIGH (Feat. 우원재, 창모, The Quiett) (Prod. CODE KUNST)",
+      name: "이영지 Lee Young Ji"
+    },{
+      id: "aKuS6T2SZoI",
+      title: "Acrobat(곡예사)",
+      name: "Gwangil Jo(조광일)"
+    },{
+      id: "R2c5v0iJbgk",
+      title: "The Roots (Feat. JUSTHIS) (Prod. GroovyRoom)",
+      name: "Khundi Panda"
+    },{
+      id: "tE4PviEbSgA",
+      title: "The Purge (Official Video) ",
+      name: "Jay Park, pH-1, BIG Naughty , Woodie Gochild, HAON, TRADE L, Sik-K"
+    },{
+      id: "HhWAQDZX-Vg",
+      title: " Good Day (Feat. 팔로알토 Paloalto) (Prod. 코드 쿤스트 CODE KUNST)",
+      name: "pH-1, Kid Milli, 루피 "
+    },{
+      id: "yUnyZQYwGAc",
+      title: "Want It (Feat. Paloalto) (Prod. CODE KUNST)",
+      name: "Swings , Mckdaddy , Khakii , Layone"
+    },{
+      id: "GpygQthc4j4",
+      title: "Turn Up! (Feat. M1NU, Veinyfl, Swervy, Layone, Young Ji Lee, Lil Nekh, D.Ark) (털어! (Feat. M1NU, Veinyfl, Swervy, 래원, 이영지, Lil Nekh, D.Ark))",
+      name: "BIG Naughty · M1NU · Veinyfl · Swervy · Layone · Young Ji Lee · Lil Nekh · D.Ark"
     }]
   },{
-    title: "발라드",
+    title: "추억의 미니홈피 BGM 베스트",
+    color: "#fff",
     img: "",
     list: [{
-      id: "8do-DV3G7Zs",
-      title: "제목11",
-      name: "가수11"
+      id: "N16i7m0rMa0",
+      title: "물고기자리",
+      name: "이안"
     },{
-      id: "JSvTuFu3N20",
-      title: "제목12",
-      name: "가수12"
+      id: "dYIT_jeUBKg",
+      title: "Y",
+      name: "프리스타일"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목13",
-      name: "가수13"
+      id: "MzCbEdtNbJ0",
+      title: "HARU HARU(하루하루)",
+      name: "빅뱅"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목14",
-      name: "가수14"
+      id: "LOXEVd-Z7NE",
+      title: "HEARTBREAKER",
+      name: "G-DRAGON"
     },{
-      id: "przR0GQBJyo",
-      title: "제목15",
-      name: "가수15"
+      id: "dXQzwNb8G7g",
+      title: "비행기",
+      name: "거북이"
+    },{
+      id: "2Cv3phvP8Ro",
+      title: "LIES(거짓말)",
+      name: "빅뱅"
+    },{
+      id: "nhuFm3BGIBY",
+      title: "너에게 쓰는 편지 (Feat. 린)",
+      name: "MC몽"
+    },{
+      id: "eq8_0g4YBPc",
+      title: "가시",
+      name: "버즈"
+    },{
+      id: "rgms0zs6SZc",
+      title: "남자를 몰라",
+      name: "버즈"
+    },{
+      id: "PlOPWA_DE4U",
+      title: "그녀를 사랑해줘요",
+      name: "하동균"
+    },{
+      id: "BY4sHNaV4WU",
+      title: "눈의 꽃",
+      name: "박효신"
+    },{
+      id: "upA01bvUemQ",
+      title: "귀로",
+      name: "나얼"
+    },{
+      id: "d1sXqVAh2CY",
+      title: "Ballerino",
+      name: "리쌍"
+    },{
+      id: "RjU5Op_KSBw",
+      title: "만약에",
+      name: "태연"
+    },{
+      id: "OJhA9nOXMWw",
+      title: "광대",
+      name: "리쌍"
+    },{
+      id: "yriaLVToQI0",
+      title: "사랑과 전쟁 (Narr. 하하)",
+      name: "다비치"
+    },{
+      id: "3rYL8AHJaTc",
+      title: "헤어지지 못하는 여자, 떠나가지 못하는 남자",
+      name: "리쌍"
+    },{
+      id: "yROjTblMPag",
+      title: "외톨이",
+      name: "아웃사이더"
+    },{
+      id: "KeMbLY7ztDw",
+      title: "사랑했나봐",
+      name: "윤도현"
+    },{
+      id: "X9A4LM0KqpI",
+      title: "몽환의 숲 (feat. 이루마)",
+      name: "키네틱플로우"
+    },{
+      id: "qdr0fZbuffY",
+      title: "Love Love Love",
+      name: "에픽하이"
+    },{
+      id: "Q8gyOnaxzHU",
+      title: "Bk Love",
+      name: "MC스나이퍼"
+    },{
+      id: "FMFBL8HtIFs",
+      title: "미워도 다시 한번 (Original Ver.)",
+      name: "바이브"
     }]
   },{
-    title: "R&B",
+    title: "기분이 좋아지는 재즈",
     img: "",
     list: [{
-      id: "JSvTuFu3N20",
-      title: "제목21",
-      name: "가수21"
+      id: "5Ry9L17HQ5Q",
+      title: "Sister Sadie",
+      name: "Joe Pass"
     },{
-      id: "Aw-PN5_2JyE",
-      title: "제목22",
-      name: "가수22"
+      id: "Oos-YHx8qXo",
+      title: "SING SING SING-7247-DNC",
+      name: "BENNY GOODMAN"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목23",
-      name: "가수23"
+      id: "USASohfZK5E",
+      title: "Calypso",
+      name: "Kenny Barron"
     },{
-      id: "przR0GQBJyo",
-      title: "제목24",
-      name: "가수24"
-    }]
+      id: "BuV9nBzLn1s",
+      title: "Blues for Junior",
+      name: "Herb Ellis Quintet"
+    },{
+      id: "rkoQLRHkFXY",
+      title: "Sunday Morning",
+      name: "Grant Green"
+    },{
+      id: "krcKl2aC1yY",
+      title: "My Heart Stood Still",
+      name: "The Alex Levin Trio"
+    },{
+      id: "Q6yLEDpDrNw",
+      title: "Satin Doll",
+      name: "Eddie Higgins"
+    },{
+      id: "zmE5Gs8grdo",
+      title: "Little Girl Blue",
+      name: "Eddie Higgins"
+    },{
+      id: "IARliphiUM4",
+      title: "La vie en rose (Single Version)",
+      name: "Louis Armstrong And His Orchestra"
+    },{
+      id: "NhLQ6wc6wyA",
+      title: "All Of You",
+      name: "Ray Brown"
+    },{
+      id: "oQfqw3s8QtQ",
+      title: "I Fall In Love Too Easily",
+      name: "Chet Baker"
+    },{
+      id: "IXFRQlszTQs",
+      title: "Tried Up",
+      name: "Ama Lou"
+    },{
+      id: "T_HbpV3PLgs",
+      title: "When You Wish Upon a Star (Mono Version)",
+      name: "The Dave Brubeck Quartet"
+    },{
+      id: "LLDjfRAKAVc",
+      title: "Tenderly (Album Version)",
+      name: "Bill Evans Trio"
+    },{
+      id: "0omaPcIShPk",
+      title: "Melody For C",
+      name: "Sonny Clark"
+    },{
+      id: "klhCx_zXYlg",
+      title: "First Responders",
+      name: "Terrace Martin, Robert Glasper, 9th Wonder, Kamasi Washington, Dinner Party"
+    },{
+      id: "Varl3SQuZ2I",
+      title: "Village Days",
+      name: "Terrace Martin, Dinner Party"
+    },{
+      id: "As1OF8HTwG0",
+      title: "The Nearness of You",
+      name: "Paul Bley"
+    },{
+      id: "h7W7U-h2AJw",
+      title: "Some Day My Prince Will Come",
+      name: "The Bill Evans Trio"
+    },{
+      id: "3BPhdGKc2Dg",
+      title: "When I Fall In Love",
+      name: "The Bill Evans Trio"
+    },]
   },{
-    title: "POP",
+    title: "나를 위로해주는 힐링 가요",
     img: "",
     list: [{
-      id: "Aw-PN5_2JyE",
-      title: "제목31",
-      name: "가수31"
+      id: "TqIAndOnd74",
+      title: "My sea (아이와 나의 바다)",
+      name: "아이유"
     },{
-      id: "lRZWGndSPeQ",
-      title: "제목32",
-      name: "가수32"
+      id: "-Ih5UArd4zk",
+      title: "Like Water",
+      name: "웬디 (WENDY)"
     },{
-      id: "przR0GQBJyo",
-      title: "제목33",
-      name: "가수33"
+      id: "Xn1ZMrGWxjQ",
+      title: "나의 첫사랑 (First Loss)",
+      name: "다비치 (Davichi)"
+    },{
+      id: "5iSlfF8TQ9k",
+      title: "한숨 (Breathe)",
+      name: "이하이 (Lee Hi)"
+    },{
+      id: "poiZpOXZXN8",
+      title: "좋아좋아 (I Like You)",
+      name: "조정석 (CHO JUNG SEOK)"
+    },{
+      id: "SK6Sm2Ki9tI",
+      title: "신호등 (Traffic light)",
+      name: "이무진 (Lee Mujin)"
+    },{
+      id: "eHir_vB1RUI",
+      title: "Rain",
+      name: "태연 (TAEYEON)"
+    },{
+      id: "ZYBY490Undc",
+      title: "Je T'aime",
+      name: "조이 (JOY)"
+    },{
+      id: "pC6tPEaAiYU",
+      title: "TOMBOY",
+      name: "혁오 (HYUKOH)"
+    },{
+      id: "IgPcbE--mMA",
+      title: "고백 (Go Back)",
+      name: "멜로망스 (MeloMance)"
+    },{
+      id: "87E6ES3OtHI",
+      title: "찬란한 계절",
+      name: "폴킴 (Paul Kim)"
+    },{
+      id: "P9_nq8q6JDY",
+      title: "일이 너무 잘 돼 (Things are going well)",
+      name: "헤이즈(Heize) - 작사가 (Lyricist)"
+    },{
+      id: "zRq_DlEzygk",
+      title: "오늘의 기분 (Today's Mood)",
+      name: "치즈 (CHEEZE)"
+    },{
+      id: "t9aZFgD0mic",
+      title: "산책",
+      name: "백예린 (Yerin Baek)"
+    },{
+      id: "PcyBJNMx5Aw",
+      title: "I'm In Love",
+      name: "콜드 (Colde)"
+    },{
+      id: "c0gZnxJ5U6c",
+      title: "잠이 들어야 (Feat. 헤이즈)",
+      name: "로꼬 (Loco)"
+    },{
+      id: "JLT8qOdpDPM",
+      title: "별 보러 가자",
+      name: "적재"
+    },{
+      id: "CHzHPVSvlM0",
+      title: "I will light your way(너의 발걸음에 빛을 비춰줄게(Prod. Cho Young Soo(조영수))",
+      name: "케이시 (Kassy)"
+    },{
+      id: "KYgxjGyqf98",
+      title: "Cherry blossom(Feat. Sonny zero, Ashley Alisha)",
+      name: "뎁트 (Dept)"
+    },{
+      id: "j7kigSvOKQo",
+      title: "walk with you",
+      name: "한올"
+    },{
+      id: "Woo01RW7_jU",
+      title: "always be by your side (너의 별이 되어줄게)",
+      name: "윤원"
+    },{
+      id: "7ix0oRcbFj4",
+      title: "사랑을 하고 있어 (I'm in Love)",
+      name: "강아솔 (Kang Asol)"
     }]
   }
 ];
@@ -115,10 +372,13 @@ var isEmpty = function(value){
 };
 
 var index = 0;
-var option;
+var option = 'start';
 var onLoad;
 var yPlayer;
 var btn_play = false;
+var repeat_mode = 'NoRepeat'; //재생반복
+var sound_mode = 'on';
+var no_data = 'on';
 
 //재생바타이머 관련
 var isPause = false;
@@ -129,31 +389,8 @@ var playtime = 0;		// 재생 시간
 
 var play_list = player_info[0].list;
 
-function loadYouTubeApi(grouplist) {
 
-  // 재생 리스트에 선택한 그룹의 리스트 담기
-  for(var j = 0; j < player_info.length; j++){
-    if(grouplist === j){
-      play_list = player_info[j].list;
-    }
-  }
-
-  // 재생 리스트 뿌려주기
-  function playerList() {
-    var html = '';
-    for(var i = 0; i < play_list.length; i++){
-      html += '<li class="list' + i + '">';
-      html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
-      html += '<div class="info_box">';
-      html += '<p class="title">' + play_list[i].title + '</p>';
-      html += '<p class="name">' + play_list[i].name + '</p>';
-      html += '</div>';
-      html += '<a href="#" onClick="listPlayer(' + i  + ');">재생</a></li>';
-    }
-    return html;
-  }
-  $('.player_list .list_box ul').html(playerList());
-
+function loadYouTubeApi() {
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -199,15 +436,20 @@ function onPlayerReady(event) {
   yPlayer.setPlaybackRate(1);
   event.target.setVolume(sound_value);
   yPlayer.playVideo();
-  $('.player_title').html(play_list[index].title);
-  $('.player_name').html(play_list[index].name);
+  $('.player_total .player_title').html(play_list[index].title);
+  $('.player_total .player_name').html(play_list[index].name);
+  $('.player_total').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
 
   maxTime = Math.floor(event.target.getDuration());
   var duration = setTimeFormat(maxTime);
   $(".play-time .end").text(duration);
   $(".time_control").prop("max", maxTime);
-  play_on("false");
   timeControls(0);
+  //음소거 off 체크시 유지하기
+  if(sound_mode === 'off'){
+    volumeMute('off')
+  }
+
 
 } 
 
@@ -307,11 +549,21 @@ function timeControls(time){
 
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
 function onPlayerStateChange_excute(){
-  nextVideo();
+  if(repeat_mode === 'All'){
+    if(play_list.length <= index+1){
+      listPlayer(0);
+    }else{
+      nextVideo();
+    }
+  }else if(repeat_mode === 'One'){
+    listPlayer(index);
+  }else{
+    nextVideo();
+  }
 }
 
 // 첫 실행시 실행
-function execute_func(){
+function execute_func(grouplist){
   if ( isEmpty(play_list[0]) == false ){
     if ( isEmpty(yPlayer) == false ){
       yPlayer.stopVideo();
@@ -320,7 +572,7 @@ function execute_func(){
       index = 0;
       onYouTubeIframeAPIReady();
     }
-    loadYouTubeApi();
+    loadYouTubeApi(grouplist);
     page_on(index);
     play_on("true");
   }
@@ -339,12 +591,12 @@ function playload(grouplist) {
 }
 
 // 재생
-function playVideo() {
+function playVideo(grouplist) {
   if(option == "Sequen"){
     yPlayer.playVideo();
   }else{
     option = "Sequen";
-    execute_func(); 
+    execute_func(grouplist); 
   }
 }
 
@@ -356,6 +608,21 @@ function randomVideo() {
   }else{
     option = "Sequen";
     $('.controls .btn_random').removeClass('on');
+  }
+}
+
+//반복재생 한곡만
+function repeatVideo() {
+  if(repeat_mode == "NoRepeat"){
+    $('.controls .btn_repeat').addClass('all');
+    repeat_mode = "All";
+  }else if(repeat_mode == "All"){
+    $('.controls .btn_repeat').addClass('one');
+    $('.controls .btn_repeat').removeClass('all');
+    repeat_mode = "One";
+  }else{
+    $('.controls .btn_repeat').removeClass('one');
+    repeat_mode = "NoRepeat";
   }
 }
 
@@ -377,7 +644,11 @@ function nextVideo() {
         index++;
         playload();
       }else{ 
-        alert("다음 곡이 없습니다."); 
+        if(repeat_mode == "All"){
+          listPlayer(0);
+        }else{
+          alert("다음 곡이 없습니다."); 
+        }
       }
     }else{ 
       index = Math.floor(Math.random() * play_list.length);  
@@ -394,7 +665,11 @@ function prevVideo() {
         index--;
         playload();
       }else{ 
-        alert("이전 곡이 없습니다."); 
+        if(repeat_mode == "All"){
+          listPlayer(play_list.length - 1);
+        }else{
+          alert("이전 곡이 없습니다."); 
+        }
       }
 
     }else{ 
@@ -404,23 +679,47 @@ function prevVideo() {
   }
 }
 
+
+
 // 음소거 On / Off
-function volumeMute() {
-  // 음소거
-  if(yPlayer.isMuted() == true) {
+function volumeMute(sound_m) {
+  var volum_num = $('.sound_control.on').val();
+  var volum_lineargradient = 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ volum_num +'%, #c4c4c4 '+ volum_num +'%, #c4c4c4 100%)';
+  if(sound_m == 'on') {
+    // 음소거 해제
+    $(".sound_control.off").css("display", "none");
+    $(".sound_control.on").css("display", "");
+    $(".sound_control.on").prop("value", volum_num);
+    $('.sound_control.on[type=range]').css('background', volum_lineargradient);
+    $('.sound_down').removeClass('soundOff');
+    $(".sound_down").attr("onClick", "volumeMute('off');");//리스트가 ON일이면서 정지일시 링크변경
+
     yPlayer.unMute();
-    jQuery("#volumeMute").val("음소거");
-  }
-  // 음소거 해제
-  else if(yPlayer.isMuted() == false) {
+    yPlayer.setVolume(volum_num);
+    sound_mode = 'on';
+  }else if(sound_m == 'off') {
+    // 음소거
+    $(".sound_control.on").css("display", "none");
+    $(".sound_control.off").css("display", "");
+    $(".sound_control.off").prop("value", 0);
+    $('.sound_control.off[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #c4c4c4 1%, #c4c4c4 100%)');
+    $('.sound_down').addClass('soundOff');
+    $(".sound_down").attr("onClick", "volumeMute('on');");//리스트가 ON일이면서 정지일시 링크변경
     yPlayer.mute();
-    jQuery("#volumeMute").val("음소거 해제");
+    sound_mode = 'off';
   }
 }
+
+
 
 // 볼륨 조절
 function soundControl(number) {
   yPlayer.setVolume(number);
+}
+
+//음소거off일때 조절시 볼륨 0으로 초기화
+function soundControl1() {
+  $(".sound_control.off").prop("value", 0);
 }
 
 //리스트 선택시 실행
@@ -433,19 +732,115 @@ function listPlayer(list_id){
 
 //그룹 선택시 실행
 function group(grouplist){
-if ( isEmpty(yPlayer) == false ){
-    index = 0;
-    playload(grouplist);    
+  
+  no_data = 'off';
+
+  // 재생 리스트에 선택한 그룹의 리스트 담기
+  for(var j = 0; j < player_info.length; j++){
+    if(j === grouplist){
+      play_list = player_info[grouplist].list;
+    }
   }
+
+  // 재생 리스트 뿌려주기
+  function playerList() {
+    var html = '';
+    for(var i = 0; i < player_info.length; i++){
+      html += '<h2>Playlist<span class="group_title"></span></h2>';
+      html += '<div class="list_box"><ul>';
+      for(var i = 0; i < play_list.length; i++){
+        html += '<li class="list' + i + '">';
+        html += '<div class="img_box"><img src="https://img.youtube.com/vi/' + play_list[i].id + '/0.jpg"></div>';
+        html += '<div class="info_box">';
+        html += '<p class="title">' + play_list[i].title + '</p>';
+        html += '<p class="name">' + play_list[i].name + '</p>';
+        html += '<div class="time_total"><div class="play-progress-box"><div class="play-progress-bar"></div><input type="range" class="time_control" value="0" onChange="timeControls(this.value);"/></div><div class="play-time"><div class="start">00:00</div><div class="end">00:00</div></div></div>';
+        html += '</div>';
+        html += '<a class="list_btn_play" href="#" onClick="listPlayer(' + i + ');">재생</a>';
+        html += '</li>';
+      }
+      html += '</ul></div>';
+    }
+    return html;
+  }
+  $('.player_list').html(playerList());
+  $(".group_title").text(player_info[grouplist].title);
+
+  $('.menu_player_total').addClass('active');
+  $('.menu_player_genre').removeClass('active');
+  $('.player_genre').css('display', 'none');
+  $('.player_total').css('display', 'block');
+
+  if ( isEmpty(yPlayer) == false ){
+    index = 0;
+    playload(grouplist);
+  }
+  if(option == "start"){
+    playVideo(grouplist);
+  }
+
+  //타이머바 마우스 클릭 중일때 재생정지
+  $('.time_control').on('mousedown',function(){
+    pauseVideo();
+    RangeSlider();
+  })
+
+  //타이머바 마우스 클릭 풀었을때 재생
+  $('.time_control').on('mouseup',function(){
+    playVideo();
+  })
+
+  //타이머바 터치시 재생정지
+  $(".time_control").on("touchstart", function(e){
+    pauseVideo();
+  }); 
+
+  //타이머바 터치중 위치이동
+  $(".time_control").on("touchmove", function(e){
+    RangeSlider();
+  });
+
+  //타이머바 터치 풀었을때 재생
+  $(".time_control").on("touchend", function(e){
+    playVideo();
+  }); 
+
+  //타이머바 드래그중일때 위치 실시간 변경
+  var RangeSlider = function(){
+    var range = $('.time_control');
+    range.on('input', function(){		
+      timeControls(this.value);
+    });
+  };
+  
 }
+
+//리스트 애니메이션
+function list_animation(){
+  var li_height = $(".list_box li").outerHeight(true);
+  for(var i = 0; i < play_list.length; i++){
+    $(".list_box .list"+i).animate({ marginTop:"15rem", opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
+  }
+
+  $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 400 );
+
+}
+
 
 //실행중인 리스트 온
 function page_on(on){
   for(var i = 0; i < play_list.length; i++){
+    var list_off = 'listPlayer('+i+')';
     if(i === on){
       $('.player_list ul li.list'+i).addClass('on');
+      $('.player_list ul li.list'+i+' .time_total').css('display','block');
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 700, "easeOutQuad")
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "1" }, 100, "easeOutQuad")
     }else{
       $('.player_list ul li.list'+i).removeClass('on');
+      $(".player_list ul li.list"+i+' .time_total').animate({ opacity: "0" }, 100, "easeOutQuad")
+      $('.player_list ul li.list'+i+' .time_total').css('display','none');
+      $('.player_list ul li.list'+i+' .list_btn_play').attr('onClick', list_off);//선택한 리스트가 아닐때 링크값 초기화
     }
   }
 }
@@ -453,29 +848,42 @@ function page_on(on){
 //재생버튼 클릭시 실행
 function play_on(on){
   if(on === "false"){
-    $(".btn_play").attr("value", "재생");
+    $(".btn_play").removeClass("pause");
+    $(".btn_play").addClass("play");
+    $(".btn_play span").text("재생");
     $(".btn_play").attr("onClick", "playVideo();");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "playVideo()");//리스트가 ON일이면서 정지일시 링크변경
+    $(".player_list ul li.on .list_btn_play").addClass("on");
   }else{
-    $(".btn_play").attr("value", "정지");
+    $(".btn_play").removeClass("play");
+    $(".btn_play").addClass("pause");
+    $(".btn_play span").text("정지");
     $(".btn_play").attr("onClick", "pauseVideo();");
+    $(".player_list ul li.on .list_btn_play").attr("onClick", "pauseVideo()");//리스트가 ON이면서 플레이시에 링크변경
+    $(".player_list ul li.on .list_btn_play").removeClass("on");
   }
 }
 
 //그룹 목록 뿌려주기
 function groupList() {
   var html = '';
+  html += '<div class="swiper-wrapper">'
   for(var i = 0; i < player_info.length; i++){
-    html += '<div class="genre_group list' + i + '" onClick="group(' + i + ');" data-genre="hiphop">';
-    html += '<h3>' + player_info[i].title + '</h3>';
-    html += '<ul>';
-    for(var j = 0; j < player_info[i].list.length; j++){
-      if(j < 8){
-        html += '<li><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></li>';
+    html += '<div class="swiper-slide genre_group list' + i + '">';
+    html += '<div class="thumb_box" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + player_info[i].list[0].id + '/maxresdefault.jpg) no-repeat top/cover; "></div>'
+    html += '<button class="btn_genre_group" onClick="group(' + i + ');"><span class="blind">재생</span></button>';
+    // html += '';
+    html += '<div class="auto_slide"><h3 style="color:'+ player_info[i].color +';">' + player_info[i].title + '</h3><div class="auto_slide_list"><ul class="swiper-wrapper">';
+    for(var j = 1; j < player_info[i].list.length; j++){
+      if(j < 21){
+        html += '<li class="swiper-slide"><div class="player_info"><div class="img_box"><img src="https://img.youtube.com/vi/' + player_info[i].list[j].id + '/0.jpg" width="100%"></div><h2 class="player_title">'+  player_info[i].list[j].title +'</h2><p class="player_name">'+player_info[i].list[j].name+'</p></div></li>';
       }
     }
-    html += '</ul>';
+    html += '</ul></div></div>';
     html += '</div>';
   }
+  html += '</div>';
+  html += '<div class="swiper-pagination"></div>';
   return html;
 }
 
@@ -483,41 +891,77 @@ function groupList() {
 
 //접속시 실행
 $(window).on('load', function() {
-  playVideo();
   $('.player_genre .genre_wrap').html(groupList());
-
+  $('.sound_control.on[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
+  $('.sound_control.on[type=range]').on('input', function(){ 
+    var val = $(this).val(); $(this).css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 '+ val +'%, #c4c4c4 ' + val + '%, #c4c4c4 100%)'); 
+  });
+  $(".sound_control.off").css("display", "none");
   
-  //인트로버튼
-  $('.btn_start').click(function(){
+ 
+
+
+  var swiper2 = new Swiper('.auto_slide_list', {
+    slidesPerView: 4,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+  });
+  // 인트로
+  setTimeout(function() {
     $('.intro').css('display', 'none');
-    $('.player_genre').css('display', 'block');
-  });
+  }, 4500); 
 
-  //그룹 버튼
-  $('.genre_group').click(function(){
-    $('.player_genre').css('display', 'none');
-    $('.player_total').css('display', 'block');
-  });
 
-  //
-  $('.btn_listshow').click(function(){
-    $('.player_total').css('display', 'none');
-    $('.player_list').css('display', 'block');
-  });
-
-  $('.btn_setting').click(function(){
-    $('.dropdown').toggleClass('on');
-  });
-
-  $('.genre_choice').click(function(){
-    $('.player_total').css('display', 'none');
-    $('.player_genre').css('display', 'block');
-    $('.dropdown').removeClass('on');
-  });
-
-  $('.btn_back').click(function(){
-    $('.player_list').css('display', 'none');
-    $('.player_total').css('display', 'block');
-  });
   
+  // Top Menu
+  $('.menu_player_genre').click(function() {
+    $('.player_list').hide();
+    $('.player_total').hide();
+    $('.player_genre').show();
+
+  });
+
+  $('.menu_player_total').click(function() {
+    if(no_data === 'on'){
+      //처음 그룹선택안하고 플레이창 이동시 첫번째 그룹 실행
+      group(0);
+      no_data = 'off';
+    }else{
+      $('.player_list').hide();
+      $('.player_genre').hide();
+      $('.player_total').show();
+    }
+  });
+
+  $('.menu_player_list').click(function() {
+    if(no_data === 'on'){
+      //처음 그룹선택안하고 리스트창 이동시 첫번째 그룹 실행
+      group(0);
+      no_data = 'off';
+    }
+    $('.player_genre').hide();
+    $('.player_total').show();
+    $('.player_list').show();
+
+    list_animation();
+
+  });
+
+
+
+  var swiper = new Swiper('.genre_wrap', {
+    direction: 'vertical',
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+  $('nav li').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+  });
 });

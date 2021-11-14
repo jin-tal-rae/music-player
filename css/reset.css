@@ -201,7 +201,7 @@ body {
 a {
     color: #222;
 }
-
+.blind{display: none;}
 @media screen and (max-width: 720px) {
     html {
         font-size: 1.388888888888889vw;

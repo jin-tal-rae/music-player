@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px">
+<style>
+    g { display: none; }
+    g:target { display: inline-block; }
+</style>
+<g id="gradient2">
+    <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:rgb(89,116,210);stop-opacity:1"></stop>
+        <stop offset="100%" style="stop-color:rgb(7,194,156);stop-opacity:1"></stop>
+        </linearGradient>
+    </defs>
+    <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M11,16H9V8h2V16z M15,16h-2V8h2V16z" fill="url(#grad2)"/>
+</g>
+</svg>
