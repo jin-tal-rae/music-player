@@ -33,10 +33,6 @@ var player_info = [
       title: "IndiGO",
       name: "JUSTHIS(저스디스), Kid Milli, NO:EL, Young B(영비)"
     },{
-      id: "l_j7g2lRYN8",
-      title: " run! (feat. JUSTHIS)",
-      name: "nafla (나플라)"
-    },{
       id: "KT5nEChOISs",
       title: "존시나 (feat. Northfacegawd, JUSTHIS, 래원)",
       name: "염따(YUMDDA)"
@@ -326,10 +322,6 @@ var player_info = [
       title: "산책",
       name: "백예린 (Yerin Baek)"
     },{
-      id: "PcyBJNMx5Aw",
-      title: "I'm In Love",
-      name: "콜드 (Colde)"
-    },{
       id: "c0gZnxJ5U6c",
       title: "잠이 들어야 (Feat. 헤이즈)",
       name: "로꼬 (Loco)"
@@ -345,10 +337,6 @@ var player_info = [
       id: "KYgxjGyqf98",
       title: "Cherry blossom(Feat. Sonny zero, Ashley Alisha)",
       name: "뎁트 (Dept)"
-    },{
-      id: "j7kigSvOKQo",
-      title: "walk with you",
-      name: "한올"
     },{
       id: "Woo01RW7_jU",
       title: "always be by your side (너의 별이 되어줄게)",
@@ -385,12 +373,15 @@ var isPause = false;
 var audioTimer;
 var progress_val = 0;	// 재생 progress bar 값
 var playtime = 0;		// 재생 시간
+var range = $('.time_control');
 
 
 var play_list = player_info[0].list;
 
 
 function loadYouTubeApi() {
+  $(".player_bg").css('opacity', '0');
+  $(".player").css('opacity', '0');
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -438,7 +429,7 @@ function onPlayerReady(event) {
   yPlayer.playVideo();
   $('.player_total .player_title').html(play_list[index].title);
   $('.player_total .player_name').html(play_list[index].name);
-  $('.player_total').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
+  $('.player_bg').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
 
   maxTime = Math.floor(event.target.getDuration());
   var duration = setTimeFormat(maxTime);
@@ -463,6 +454,8 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
   stopAudioTimer(); // 타이머 중지
   if (event.data == YT.PlayerState.PLAYING) {
+    $(".player_bg").animate({ opacity: "1" }, 500, "easeOutQuad")
+    $(".player").animate({ opacity: "1" }, 500, "easeOutQuad")
     // 재생중
     play_on("true");
     startAudioTimer(); // 오디오 재생시 타이머 시작, 재생바 진행, 재생시간 시작
@@ -584,6 +577,7 @@ function playload(grouplist) {
   yPlayer.destroy();
   yPlayer = null;
   videoID = play_list[index].id;
+  isPause = true;
   loadYouTubeApi(grouplist);
   onYouTubeIframeAPIReady();
   page_on(index);
@@ -807,22 +801,33 @@ function group(grouplist){
 
   //타이머바 드래그중일때 위치 실시간 변경
   var RangeSlider = function(){
-    var range = $('.time_control');
-    range.on('input', function(){		
-      timeControls(this.value);
+    range.off('input').on('input', function(){		
+     var time_var = (this.value/maxTime)*100;
+      if(time_var < 99){
+        timeControls(this.value);
+      }
     });
-  };
+  }
   
 }
 
 //리스트 애니메이션
 function list_animation(){
+  var listBox_height = $(".list_box").outerHeight(true);
+  var ul_height = $(".list_box ul").outerHeight(true);
   var li_height = $(".list_box li").outerHeight(true);
-  for(var i = 0; i < play_list.length; i++){
-    $(".list_box .list"+i).animate({ marginTop:"15rem", opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "1.5rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
+  var li_index = (li_height * index)+1;
+
+  if(li_index > ul_height - listBox_height){
+    li_index = ul_height - listBox_height;
+  }else{
+    li_index = li_index;
   }
 
-  $('.list_box').animate( { scrollTop :  ((li_height * index))+1  }, 400 );
+  for(var i = 0; i < play_list.length; i++){
+      $(".list_box .list"+i).animate({ marginTop:"15rem", opacity: "0" }, 0, "easeOutQuad").animate({ marginTop: "0rem", opacity: "1" }, (((i+1)*0.5)*100)+450, "easeOutQuad");
+  }
+  $('.list_box').animate( { scrollTop : li_index }, 400 );
 
 }
 

@@ -41,9 +41,12 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .genre_group .auto_slide{margin-left: 2rem; margin-top: -30rem;}
 
 .player_total{ width:100%; height:100%; align-items: center; background: linear-gradient(to bottom, rgb(0 0 0 / 15%) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%); }
+
+.player_total .player_bg{ position:absolute; z-index:-1; left:0; top:0; width:100%; height:100vh;}
+
 .player_total .total_wrap{width: 100%; height: 100vh; padding:4.5rem 2rem; display: flex; flex-direction: column; justify-content: flex-end;}
 .player_total .player_img_wrap{width: 100%; position: absolute; left: 0; top: 50%; transform: translateY(-100%);}
-.player_total .player_img{ position: relative; width: 100%; padding-bottom: 56.4%;}
+.player_total .player_img{ position: relative; width: 100%; padding-bottom: 56%; background-color:#000;}
 .player_total .player_img .player{ position: absolute; left:0; top: 0; width:100%; height:100%;}
 
 .player_total .player_info{ margin-top:1rem;}
@@ -96,8 +99,7 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_list .list_box{height: calc(100% - 11.2rem); overflow-y: scroll; padding-right: 2rem;}
 .player_list .list_box::-webkit-scrollbar{width: 1rem;}
 .player_list .list_box::-webkit-scrollbar-thumb{background-color: #aaa; border-radius: 1rem;}
-.player_list ul li{ position:relative; padding: 2rem;display: flex;justify-content:flex-start;background-color: #f1f1f1;border-radius: 1rem; }
-.player_list ul li + li {margin-top: 1.5rem}
+.player_list ul li{ position:relative; padding: 2rem;display: flex;justify-content:flex-start;background-color: #f1f1f1;border-radius: 1rem; margin-bottom: 1.5rem;}
 .player_list ul li .img_box{position:relative;width: 7.5rem;height:0;padding-bottom: 5.7rem;margin-right:1.2rem; background-color: #333; transition:all 200ms;}
 .player_list ul li .img_box img{ position: absolute; width: 100%; height:100%;}
 .player_list ul li .info_box{ position: relative; width: calc(100% - 8.7rem); display: flex;align-items:center;align-content:center;flex-wrap: wrap;}
