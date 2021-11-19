@@ -425,7 +425,6 @@ var isPause = false;
 var audioTimer;
 var progress_val = 0;	// 재생 progress bar 값
 var playtime = 0;		// 재생 시간
-var range = $('.time_control');
 
 
 var play_list = player_info[0].list;
@@ -863,6 +862,7 @@ function group(grouplist){
   }); 
 
   //타이머바 드래그중일때 위치 실시간 변경
+  var range = $('.time_control');
   var RangeSlider = function(){
     range.off('input').on('input', function(){		
      var time_var = (this.value/maxTime)*100;

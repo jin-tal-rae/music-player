@@ -117,11 +117,11 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 
 .player_list ul li .time_total{ display: none; position:absolute; left: 0; bottom:1%; width:100%; }
 .player_list ul li .time_total .play-progress-box{position:relative; display: inline-block; background: #c4c4c4; width:100%; height: 0.6rem; overflow:hidden; border-radius:0.3rem;}
-.player_list ul li .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0.3rem; }
+.player_list ul li .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0; }
 .player_list ul li .time_total .play-time{ margin-top:0; display: flex; justify-content: space-between; font-size: 1.1rem; line-height:1; color:#c4c4c4;}
 .player_list ul li .time_total .time_control { position: absolute; left:0; top: 0; width:100%; padding: 0px; }
 .player_list ul li .time_total .time_control[type=range]{ width:100%; -webkit-appearance: none; background: transparent; cursor: pointer;}
-.player_list ul li .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; margin-left:-0.3rem; width: 0.6rem; height: 0.6rem; border-radius:0.3rem; background:#636AD8; cursor: pointer; }
+.player_list ul li .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 0.6rem; height:0.6rem; border-radius:0 0.3rem 0.3rem 0; background:#636AD8; cursor: pointer; }
 
 .swiper-pagination-bullet{background: #eee; border: 1px solid #000;}
 .swiper-pagination-bullet-active{background-color: #8067C7; border: 1px solid #5e36ca;}
