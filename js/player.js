@@ -174,6 +174,10 @@ var player_info = [
       title: "Bk Love",
       name: "MC스나이퍼"
     },{
+      id: "EWosRTwEpw0",
+      title: "그댄 달라요",
+      name: "한예슬"
+    },{
       id: "FMFBL8HtIFs",
       title: "미워도 다시 한번 (Original Ver.)",
       name: "바이브"
@@ -346,6 +350,54 @@ var player_info = [
       title: "사랑을 하고 있어 (I'm in Love)",
       name: "강아솔 (Kang Asol)"
     }]
+  },{
+    title: "기분이 좋아지는 남녀 듀엣곡",
+    img: "",
+    list: [{
+      id: "ZYtfSGVT-OI",
+      title: "Dream",
+      name: "수지 & 백현"
+    },{
+      id: "uAkf3ZZyFN0",
+      title: "짧은머리 ",
+      name: "허각 & 정은지"
+    },{
+      id: "uyWdED9FvBM",
+      title: "착해 빠졌어",
+      name: "소유 & 매드클라운"
+    },{
+      id: "3fR9Uzt06WM",
+      title: "All For You(리메이크 곡)",
+      name: "서인국 & 정은지"
+    },{
+      id: "p_1ypvwxiSw",
+      title: "썸",
+      name: "소유 & 정기고"
+    },{
+      id: "myxdukZHJ9E",
+      title: "한여름밤의 꿀",
+      name: "San E & 레이나"
+    },{
+      id: "rpq2auav_jk",
+      title: "잔소리",
+      name: "아이유 & 임슬옹"
+    },{
+      id: "eWP6dKzYfuE",
+      title: "설렘주의",
+      name: "NS윤지 & 기리보이"
+    },{
+      id: "-t2BFc8QIrA",
+      title: "사람냄새",
+      name: "개리 & 정인"
+    },{
+      id: "5UQzXbizT-s",
+      title: "Say Yes (달의 연인 - 보보경심 려 OST Part 2)",
+      name: "로꼬 & 펀치"
+    },{
+      id: "7E1w3BoYm_w",
+      title: "Perhaps Love(사랑인가요)",
+      name: "에릭남 & 치즈"
+    }]
   }
 ];
 
@@ -382,7 +434,8 @@ var play_list = player_info[0].list;
 function loadYouTubeApi() {
   $(".player_bg").css('opacity', '0');
   $(".player").css('opacity', '0');
-
+  $(".player_info").css('opacity', '0');
+  
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -431,8 +484,10 @@ function onPlayerReady(event) {
   $('.player_total .player_name').html(play_list[index].name);
   $('.player_bg').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
 
+
+
   maxTime = Math.floor(event.target.getDuration());
-  var duration = setTimeFormat(maxTime);
+  var duration = setTimeFormat(maxTime - 1);
   $(".play-time .end").text(duration);
   $(".time_control").prop("max", maxTime);
   timeControls(0);
@@ -456,6 +511,8 @@ function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.PLAYING) {
     $(".player_bg").animate({ opacity: "1" }, 500, "easeOutQuad")
     $(".player").animate({ opacity: "1" }, 500, "easeOutQuad")
+    $(".player_info").animate({ opacity: "1" }, 500, "easeOutQuad")
+
     // 재생중
     play_on("true");
     startAudioTimer(); // 오디오 재생시 타이머 시작, 재생바 진행, 재생시간 시작
@@ -538,6 +595,11 @@ function timeControls(time){
   $(".time_control").prop("value", time);
   $(".play-time .start").text(setTimeFormat(time));
   $(".play-progress-bar").css('width', time_var+"%");
+  if(time_var > 50){
+    $(".play-progress-bar").css('border-radius', "0.6rem");
+  }else{
+    $(".play-progress-bar").css('border-radius', "0");
+  }
 }
 
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
@@ -769,6 +831,7 @@ function group(grouplist){
     index = 0;
     playload(grouplist);
   }
+
   if(option == "start"){
     playVideo(grouplist);
   }
@@ -811,15 +874,16 @@ function group(grouplist){
   
 }
 
-//리스트 애니메이션
+//리스트 위치 및 애니메이션
 function list_animation(){
   var listBox_height = $(".list_box").outerHeight(true);
   var ul_height = $(".list_box ul").outerHeight(true);
   var li_height = $(".list_box li").outerHeight(true);
+  var li_margin = li_height - $(".list_box li").outerHeight();
   var li_index = (li_height * index)+1;
 
   if(li_index > ul_height - listBox_height){
-    li_index = ul_height - listBox_height;
+    li_index = ul_height - listBox_height + li_margin;
   }else{
     li_index = li_index;
   }
