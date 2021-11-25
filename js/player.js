@@ -880,9 +880,9 @@ function list_animation(){
   var ul_height = $(".list_box ul").outerHeight(true);
   var li_height = $(".list_box li").outerHeight(true);
   var li_margin = li_height - $(".list_box li").outerHeight();
-  var li_index = (li_height * index)+1;
+  var li_index = li_height * index;
 
-  if(li_index > ul_height - listBox_height){
+  if(li_index > ul_height - listBox_height + li_margin){
     li_index = ul_height - listBox_height + li_margin;
   }else{
     li_index = li_index;
