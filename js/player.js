@@ -401,6 +401,28 @@ var player_info = [
   }
 ];
 
+var repeat_mode = 'NoRepeat'; //재생반복모드 NoRepeat, All, One 제어
+var sound_mode = 'on'; //사운드모드 ON, OFF 제어
+var no_data = 'on'; //그룹 리스트를 선택안하고 상단 플레이어 탭과 리스트탭 클릭시 기본데이터가 플레이되도록 실행
+
+//재생바 타이머 관련
+var isPause = true; // 타이머 실행중인지 구분 true=정지, false=실행
+var audioTimer; // 타이머 종료를 위해 만든 변수
+var progress_val = 0;	// 현재 재생시간 %로 값 표시
+var playtime = 0;	// 현재 재생시간 00:00 표시
+var maxTime = 0; // 총재생시간 00:00 표시
+
+var play_list; //그룹 리스트를 담는 변수
+var play_id; //재생할 아이디를 담는 변수
+
+
+
+//★ 유튜브API 기본소스 시작 ★
+
+var index = 0; //재생중인 인덱스
+var option = ''; //랜덤재생 타입변경 변수
+var onLoad;
+var yPlayer;
 
 // 빈 값 체크
 var isEmpty = function(value){
@@ -411,42 +433,19 @@ var isEmpty = function(value){
   } 
 };
 
-var index = 0;
-var option = 'start';
-var onLoad;
-var yPlayer;
-var btn_play = false;
-var repeat_mode = 'NoRepeat'; //재생반복
-var sound_mode = 'on';
-var no_data = 'on';
-
-//재생바타이머 관련
-var isPause = false;
-var audioTimer;
-var progress_val = 0;	// 재생 progress bar 값
-var playtime = 0;		// 재생 시간
-
-
-var play_list = player_info[0].list;
-
-
 function loadYouTubeApi() {
-  $(".player_bg").css('opacity', '0');
-  $(".player").css('opacity', '0');
-  $(".player_info").css('opacity', '0');
-  
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  videoID = play_list[index].id;
+  play_id = play_list[index].id; // 재생목록 담기
 }
 
 function onYouTubeIframeAPIReady() {
   yPlayer = new YT.Player('player', {
     width: '100%',
-    videoId: videoID,
+    videoId: play_id,
     playerVars : { 
       'rel': 0,             		            // 추천영상 노출 업데이트 이후로 작동안함
       'autoplay': 0,                        // 자동재생
@@ -479,11 +478,12 @@ function onPlayerReady(event) {
   yPlayer.setPlaybackRate(1);
   event.target.setVolume(sound_value);
   yPlayer.playVideo();
+  $(".player_bg").css('opacity', '0');
+  $(".player").css('opacity', '0');
+  $(".player_info").css('opacity', '0');
   $('.player_total .player_title').html(play_list[index].title);
   $('.player_total .player_name').html(play_list[index].name);
   $('.player_bg').css('background','linear-gradient(to bottom, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%), url(https://img.youtube.com/vi/' + play_list[index].id + '/mqdefault.jpg) no-repeat top/cover ');
-
-
 
   maxTime = Math.floor(event.target.getDuration());
   var duration = setTimeFormat(maxTime - 1);
@@ -494,8 +494,6 @@ function onPlayerReady(event) {
   if(sound_mode === 'off'){
     volumeMute('off')
   }
-
-
 } 
 
 //플레이어 상태 변화 시 이벤트를 실행 
@@ -522,23 +520,24 @@ function onPlayerStateChange(event) {
   }else if (event.data == YT.PlayerState.ENDED) {
     // 종료
     play_on("false");
-    setTimeout(onPlayerStateChange_excute, onLoad); // 재생 완료후 
-    $(".play-time .start").text('00:00');	// 타이머 중지
-    $(".play-time .end").text('00:00');
+    $(".play-time .start").text('00:00');	// 재생시간 초기화
+    $(".play-time .end").text('00:00');	// 전체시간 초기화
     $(".play-progress-bar").width(0);	// 재생바 초기화
     $(".time_control").prop("value", 0);
-
+    setTimeout(onPlayerStateChange_excute, onLoad); // 재생 완료후 
   }else if (event.data == YT.PlayerState.BUFFERING) {
 
   }else if (event.data == YT.PlayerState.CUED) {
     play_on("false");
     stopAudioTimer(); // 타이머 중지
   }
-
 }
+//★ 유튜브API 기본소스 끝 ★
 
 
-/* 오디오 재생시 인터벌 시작
+
+
+/* 재생시 인터벌 시작
 : 재생 로딩바 시작
 : 재생시간 포멧 변경 시작 */
 function startAudioTimer(){
@@ -560,8 +559,8 @@ function varTimerMove(){
     // 가져온 현재 재생시간을 progress bar에 표기하기위해 currentTime가공
     // 재생 완료를 100으로 잡고 현재 재생시간을 계산
     // 소수점 첫번째 자리까지 계산
-    progress_val = (currentTime/maxTime)*100;
-    progress_val = progress_val.toFixed(1);
+    progress_val = (currentTime/maxTime)*100;//시간을 100%로 표시되도록 계산
+    progress_val = progress_val.toFixed(1);//toFixed() 메서드는 숫자를 고정 소수점 표기법으로 표기해 반환합니다.
     $(".play-time .start").text(playtime);
     $(".play-progress-bar").css('width', progress_val+"%");
     //재생바현재위치 표시]
@@ -594,11 +593,6 @@ function timeControls(time){
   $(".time_control").prop("value", time);
   $(".play-time .start").text(setTimeFormat(time));
   $(".play-progress-bar").css('width', time_var+"%");
-  if(time_var > 50){
-    $(".play-progress-bar").css('border-radius', "0.6rem");
-  }else{
-    $(".play-progress-bar").css('border-radius', "0");
-  }
 }
 
 // 재생시간 완료후 다음곡으로 넘어갈때 실행
@@ -616,7 +610,7 @@ function onPlayerStateChange_excute(){
   }
 }
 
-// 첫 실행시 실행
+// 첫 실행시 실행(그룹에서 선택시)
 function execute_func(grouplist){
   if ( isEmpty(play_list[0]) == false ){
     if ( isEmpty(yPlayer) == false ){
@@ -637,7 +631,7 @@ function playload(grouplist) {
   yPlayer.stopVideo();
   yPlayer.destroy();
   yPlayer = null;
-  videoID = play_list[index].id;
+  play_id = play_list[index].id;
   isPause = true;
   loadYouTubeApi(grouplist);
   onYouTubeIframeAPIReady();
@@ -645,17 +639,21 @@ function playload(grouplist) {
   play_on("true");
 }
 
+
+//★ 버튼제어
 // 재생
 function playVideo(grouplist) {
   if(option == "Sequen"){
     yPlayer.playVideo();
+  }else if(option == "Random"){
+    yPlayer.playVideo();
   }else{
     option = "Sequen";
-    execute_func(grouplist); 
+    execute_func(grouplist); //첫 실행시 실행
   }
 }
 
-//랜덤재생
+// 순차, 랜덤재생 제어
 function randomVideo() {
   if(option == "Sequen"){
     option = "Random";
@@ -666,7 +664,7 @@ function randomVideo() {
   }
 }
 
-//반복재생 한곡만
+// 반복재생, 한곡만재생
 function repeatVideo() {
   if(repeat_mode == "NoRepeat"){
     $('.controls .btn_repeat').addClass('all');
@@ -693,9 +691,10 @@ function stopVideo() {
 
 // 다음재생
 function nextVideo() {
-  if ( isEmpty(yPlayer) == false ){
-    if (option == "Sequen" ){
-      if ( index < play_list.length - 1){
+  if( isEmpty(yPlayer) == false ){
+    if(option == "Sequen" ){
+      //순차재생
+      if( index < play_list.length - 1){
         index++;
         playload();
       }else{ 
@@ -706,6 +705,7 @@ function nextVideo() {
         }
       }
     }else{ 
+      //랜덤재생
       index = Math.floor(Math.random() * play_list.length);  
       playload();
     }
@@ -733,8 +733,6 @@ function prevVideo() {
     }
   }
 }
-
-
 
 // 음소거 On / Off
 function volumeMute(sound_m) {
@@ -765,8 +763,6 @@ function volumeMute(sound_m) {
   }
 }
 
-
-
 // 볼륨 조절
 function soundControl(number) {
   yPlayer.setVolume(number);
@@ -787,7 +783,6 @@ function listPlayer(list_id){
 
 //그룹 선택시 실행
 function group(grouplist){
-  
   no_data = 'off';
 
   // 재생 리스트에 선택한 그룹의 리스트 담기
@@ -826,12 +821,12 @@ function group(grouplist){
   $('.player_genre').css('display', 'none');
   $('.player_total').css('display', 'block');
 
-  if ( isEmpty(yPlayer) == false ){
+
+  if(isEmpty(yPlayer) == false ){
     index = 0;
     playload(grouplist);
-  }
-
-  if(option == "start"){
+  }else{
+    //플레이어 첫 재생시에만 실행
     playVideo(grouplist);
   }
 
@@ -843,7 +838,7 @@ function group(grouplist){
 
   //타이머바 마우스 클릭 풀었을때 재생
   $('.time_control').on('mouseup',function(){
-    playVideo();
+      playVideo();
   })
 
   //타이머바 터치시 재생정지
@@ -858,7 +853,7 @@ function group(grouplist){
 
   //타이머바 터치 풀었을때 재생
   $(".time_control").on("touchend", function(e){
-    playVideo();
+      playVideo();
   }); 
 
   //타이머바 드래그중일때 위치 실시간 변경
@@ -874,7 +869,7 @@ function group(grouplist){
   
 }
 
-//리스트 위치 및 애니메이션
+//플레이어 리스트 위치 및 애니메이션
 function list_animation(){
   var listBox_height = $(".list_box").outerHeight(true);
   var ul_height = $(".list_box ul").outerHeight(true);
@@ -896,7 +891,7 @@ function list_animation(){
 }
 
 
-//실행중인 리스트 온
+//실행중인 플레이어 리스트 ON 제어
 function page_on(on){
   for(var i = 0; i < play_list.length; i++){
     var list_off = 'listPlayer('+i+')';
@@ -914,7 +909,7 @@ function page_on(on){
   }
 }
 
-//재생버튼 클릭시 실행
+//재생버튼 play, pause 제어
 function play_on(on){
   if(on === "false"){
     $(".btn_play").removeClass("pause");
@@ -960,6 +955,7 @@ function groupList() {
 
 //접속시 실행
 $(window).on('load', function() {
+
   $('.player_genre .genre_wrap').html(groupList());
   $('.sound_control.on[type=range]').css('background', 'linear-gradient(to right, #636AD8 0%, #636AD8 50%, #c4c4c4 50%, #c4c4c4 100%)');
   $('.sound_control.on[type=range]').on('input', function(){ 
@@ -967,8 +963,6 @@ $(window).on('load', function() {
   });
   $(".sound_control.off").css("display", "none");
   
- 
-
 
   var swiper2 = new Swiper('.auto_slide_list', {
     slidesPerView: 4,
@@ -978,12 +972,11 @@ $(window).on('load', function() {
       disableOnInteraction: false,
     },
   });
+
   // 인트로
   setTimeout(function() {
     $('.intro').css('display', 'none');
   }, 4500); 
-
-
   
   // Top Menu
   $('.menu_player_genre').click(function() {
@@ -1014,12 +1007,8 @@ $(window).on('load', function() {
     $('.player_genre').hide();
     $('.player_total').show();
     $('.player_list').show();
-
     list_animation();
-
   });
-
-
 
   var swiper = new Swiper('.genre_wrap', {
     direction: 'vertical',

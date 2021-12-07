@@ -14,12 +14,14 @@
 <body>
   <div id="wrap">
 
+    <!--★ 인트로 ★-->
     <section class="intro">
       <img src="./img/logo.svg" alt="" class="logo">
       <h1>JTR MUSIC PLAYER</h1>
       <p>with.youtube</p>
     </section>
 
+    <!--★ 상단 탭메뉴 ★-->
     <nav>
       <ul>
         <li class="menu_player_genre active">
@@ -43,9 +45,9 @@
       </ul>
     </nav>
 
+    <!--★ 플레이어 그룹 ★-->
     <section class="player_genre">
       <h2 class="hidden">Music group</h2>
-
       <div class="genre_wrap">
         <!-- <div class="genre_group list0">
           <h3>댄스</h3>
@@ -56,23 +58,28 @@
       </div>
     </section>
 
+    <!--★ 재생중인 플레이어 ★-->
     <section class="player_total">
       <h2 class="hidden">Player</h2>
 
+      <!--플레이어 배경-->
       <div class="player_bg"></div>
       
       <div class="total_wrap">
+        <!--플레이어 화면-->
         <div class="player_img_wrap">
           <div class="player_img">
             <div id="player" class="player"></div>
           </div>
         </div>
   
+        <!--플레이어 정보-->
         <div class="player_info">
           <h2 class="player_title"></h2>
           <p class="player_name"></p>
         </div>
         
+        <!--플레이어 타이머-->
         <div class="time_total">
           <div class="play-progress-box">
             <div class="play-progress-bar"></div>
@@ -85,7 +92,7 @@
         </div>
   
         <div class="controls">
-  
+          <!--버튼-->
           <div class="btn_box">
             <button type="button" onClick="repeatVideo();" class="btn_repeat"><span class="blind">반복</span></button>
             <div class="btn_center">
@@ -95,25 +102,22 @@
             </div>
             <button type="button" onClick="randomVideo();" class="btn_random"><span class="blind">랜덤</span></button>
           </div>
-  
+
+          <!--볼륨-->
           <div class="sound_control_box">
             <i class="sound_down" onClick="volumeMute('off');"></i>
             <input type="range" class="sound_control on" value="50" min="0" max="100" onChange="soundControl(this.value);"/>
             <input type="range" class="sound_control off" value="0" min="0" max="100" onChange="soundControl1(0);"/>
             <i class="sound_up"></i>
           </div>
-          <!-- <input type="button" value="정지" onClick="pauseVideo();"/> -->
-          <!-- <input type="button" value="종료" onClick="stopVideo();"/> -->
-          <!-- <input type="button" id="volumeMute" value="음소거" onClick="volumeMute();"/> -->
         </div>
       </div>
     </section>
 
+    <!--★ 플레이어 리스트 ★-->
     <section class="player_list">
       <p class="txt_null">재생 중인 곡이 없습니다.</p>
-
       <!-- <h2>Playlist <span>Electronic</span></h2>
-
       <div class="list_box">
         <ul>
           <li class="list0">

@@ -1,5 +1,8 @@
 #wrap {position: relative;}
 section{width: 100%; height: 100%;background-color:#fff; display: none; overflow: hidden; position: absolute; top: 0; }
+
+
+/* 인트로 */
 .intro {position: absolute; z-index: 11; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; animation-name: introShow; animation-delay: 2s; animation-duration: 3s;}
 .intro .logo{width: 20rem;}
 .intro h1{font-size: 3rem;}
@@ -9,6 +12,8 @@ section{width: 100%; height: 100%;background-color:#fff; display: none; overflow
     100% {opacity: 0;}
 }
 
+
+/* 상단 탭메뉴 */
 nav {position: fixed; z-index: 10; width: 100%; max-width: 720px; padding: 0.5rem 1rem;}
 nav ul {display: flex; justify-content: flex-end;}
 nav ul li {margin: .5rem 0; padding: .5rem 1.2rem; font-size: 1.4rem; border-radius: 30px;}
@@ -22,6 +27,8 @@ nav .menu_player_genre i {width: 2.4rem; height: 2.4rem; background: url(../img/
 nav .menu_player_total i {width: 2.4rem; height: 2.4rem; background: url(../img/play_circle_filled_black_24dp.svg#white) no-repeat center/contain;}
 nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/playlist_play_black_24dp.svg#white) no-repeat center/contain;}
 
+
+/* 플레이어 그룹 */
 .player_genre{display: block; text-align: center; position: relative;}
 .player_genre .genre_wrap {height: 100%;}
 .player_genre .thumb_box {position: relative; z-index: -1;background-repeat: no-repeat; width: 100%; height: 100vh; }
@@ -40,6 +47,8 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .genre_group ul li img {width: 27rem; height: 20rem; transform: translate(-6rem,-3rem);}
 .genre_group .auto_slide{margin-left: 2rem; margin-top: -30rem;}
 
+
+/* 재생중인 플레이어 */
 .player_total{ width:100%; height:100%; align-items: center; background: linear-gradient(to bottom, rgb(0 0 0 / 15%) 65%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.7) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%); }
 
 .player_total .player_bg{ position:absolute; z-index:-1; left:0; top:0; width:100%; height:100vh;}
@@ -75,14 +84,13 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_total .controls .sound_control_box .sound_control[type=range]:focus { outline: none; } 
 .player_total .controls .sound_control_box .sound_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 1.6rem; height: 1.6rem; background: #fff; border: 0.3rem solid #636AD8; border-radius:50%; cursor: pointer; } 
 
-
 .player_total .time_total{ position: relative; margin-top:3rem; width:100%; }
 .player_total .time_total .play-progress-box{position:relative; display: inline-block; background: #c4c4c4; width:100%; height: 1.2rem; overflow:hidden; border-radius:0.6rem;}
-.player_total .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0rem; }
+.player_total .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0.6rem; }
 .player_total .time_total .play-time{ margin-top:0.5rem; display: flex; justify-content: space-between; font-size:1.8rem; line-height:1; letter-spacing:0; color:#000;}
 .player_total .time_total .time_control { position: absolute; left:0; top: 0; width:100%; padding: 0px; }
 .player_total .time_total .time_control[type=range]{ width:100%; -webkit-appearance: none; background: transparent; cursor: pointer;}
-.player_total .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 1.2rem; height: 1.2rem; border-radius:0 0.6rem 0.6rem 0; background:#636AD8; cursor: pointer; }
+.player_total .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 1.2rem; height: 1.2rem; border-radius:0.6rem; background:rgba(0,0,0,0); cursor: pointer; }
 
 .player_total .header{height: 5rem;}
 .player_total .header_box{display: flex; align-items: flex-end; flex-direction: column; width: 100%;}
@@ -92,6 +100,8 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 .player_total .dropdown li{ height: 5rem; line-height: 5rem; cursor: pointer;}
 .player_total .dropdown li:not(:first-child){border-top: 1px solid #333;}
 
+
+/* 플레이어 리스트 */
 .player_list{display: none; width:100%; padding:4.5rem 4.5rem 0; background-color:rgba(0,0,0,.6);}
 .player_list .txt_null {display: flex;align-items: center;justify-content: center;height: 80%;color: #fff;font-size: 2rem;}
 .player_list h2 {margin-bottom: 4.5rem; font-size: 4.8rem; color: #fff;}
@@ -117,11 +127,11 @@ nav .menu_player_list i {width: 2.4rem; height: 2.4rem; background: url(../img/p
 
 .player_list ul li .time_total{ display: none; position:absolute; left: 0; bottom:1%; width:100%; }
 .player_list ul li .time_total .play-progress-box{position:relative; display: inline-block; background: #c4c4c4; width:100%; height: 0.6rem; overflow:hidden; border-radius:0.3rem;}
-.player_list ul li .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:0; }
+.player_list ul li .time_total .play-progress-box .play-progress-bar{width:0;height:100%;background:#636AD8; border-radius:3rem; }
 .player_list ul li .time_total .play-time{ margin-top:0; display: flex; justify-content: space-between; font-size: 1.1rem; line-height:1; color:#c4c4c4;}
 .player_list ul li .time_total .time_control { position: absolute; left:0; top: 0; width:100%; padding: 0px; }
 .player_list ul li .time_total .time_control[type=range]{ width:100%; -webkit-appearance: none; background: transparent; cursor: pointer;}
-.player_list ul li .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 0.6rem; height:0.6rem; border-radius:0 0.3rem 0.3rem 0; background:#636AD8; cursor: pointer; }
+.player_list ul li .time_total .time_control[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; width: 0.6rem; height:0.6rem; border-radius:0.3rem; background:rgba(0,0,0,0); cursor: pointer; }
 
 .swiper-pagination-bullet{background: #eee; border: 1px solid #000;}
 .swiper-pagination-bullet-active{background-color: #8067C7; border: 1px solid #5e36ca;}
